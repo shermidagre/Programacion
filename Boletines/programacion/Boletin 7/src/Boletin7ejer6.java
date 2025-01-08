@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 public class Boletin7ejer6 {
     public static void main(String[] args) {

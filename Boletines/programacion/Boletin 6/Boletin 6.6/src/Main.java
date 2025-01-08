@@ -1,5 +1,4 @@
 package boletin6;
-
 import java.util.Scanner;
 
 public class amigos {

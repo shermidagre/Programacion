@@ -1,3 +1,4 @@
+
 import static java.lang.Integer.parseInt;
 /*
 public class Boletinejer2 {

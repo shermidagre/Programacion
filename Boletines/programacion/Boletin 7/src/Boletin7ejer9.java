@@ -1,5 +1,6 @@
 
 
+
 public class Boletin7ejer9 {
     public static void main(String[] args) {
         System.out.println("Este programa busca un numero en una lista de numeros aleatorios y elimina los numeros repetidos");
