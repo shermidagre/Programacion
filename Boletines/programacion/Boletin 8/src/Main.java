@@ -49,6 +49,7 @@ public class Main {
 
     }
 
+
     public static void eliminarespaciosenfrases() {
         System.out.println("Eliminaremos os espacios en blanco de una frase");
         String frase = "James Gosling Created Java";
