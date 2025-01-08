@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Buscarmaximoenarray/Buscarmaximoenarray.iml" filepath="$PROJECT_DIR$/Buscarmaximoenarray/Buscarmaximoenarray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ComparaciondeArrays/ComparaciondeArrays.iml" filepath="$PROJECT_DIR$/ComparaciondeArrays/ComparaciondeArrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hundirlaflota/Hundirlaflota.iml" filepath="$PROJECT_DIR$/Hundirlaflota/Hundirlaflota.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Programas random.iml" filepath="$PROJECT_DIR$/.idea/Programas random.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Raizcuadrada_samuelhermida/Raizcuadrada_samuelhermida.iml" filepath="$PROJECT_DIR$/Raizcuadrada_samuelhermida/Raizcuadrada_samuelhermida.iml" />
+      <module fileurl="file://$PROJECT_DIR$/camparaciointroduccionarrays/camparaciointroduccionarrays.iml" filepath="$PROJECT_DIR$/camparaciointroduccionarrays/camparaciointroduccionarrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cine/cine.iml" filepath="$PROJECT_DIR$/cine/cine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exemploclaseaarray/exemploclaseaarray.iml" filepath="$PROJECT_DIR$/exemploclaseaarray/exemploclaseaarray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hotel/hotel.iml" filepath="$PROJECT_DIR$/hotel/hotel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modulosclase/modulosclase.iml" filepath="$PROJECT_DIR$/modulosclase/modulosclase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practicaconstrings/practicaconstrings.iml" filepath="$PROJECT_DIR$/practicaconstrings/practicaconstrings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pruebas/pruebas.iml" filepath="$PROJECT_DIR$/pruebas/pruebas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soldomedio/soldomedio.iml" filepath="$PROJECT_DIR$/soldomedio/soldomedio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/traabjo funcioin taboa/traabjo funcioin taboa.iml" filepath="$PROJECT_DIR$/traabjo funcioin taboa/traabjo funcioin taboa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tresenralla/tresenralla.iml" filepath="$PROJECT_DIR$/tresenralla/tresenralla.iml" />
+    </modules>
+  </component>
+</project>
