@@ -112,7 +112,6 @@ public class Main {
 
                     }
 
-
                     // Comprobación de espacio en blanco
 
                     if (Character.isWhitespace(caracter)) {
