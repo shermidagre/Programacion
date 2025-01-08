@@ -14,13 +14,15 @@ public class Main {
         String apelido = new String(" Gutierrez");
         System.out.println(nome);
         System.out.println(apelido);
+        boolean opcion=true;
+        System.out.println(nome);
 
         //manera de contar el numero de caracteres para un String
-        System.out.println("A lonxitude de nome é " + nome.length());
+        System.out.println("A lonxitude de String é " + nome.length());
         //transforma la variable nome a un string y permite ponerle comillas por consola
         System.out.println("A lonxitude de \"nome\" é "+ nome.length());
-
-        System.out.println("Tres tristes tigres \r comen trigo en un trigal");
+        System.out.println("imprimimos \\texto\\ \ncon \tcontrabarras \f");
+        System.out.println("Tres tristes tigres \r comen \b\b\btrigo en un trigal");
         //concatena dos Strings, y crea un nuevo String a partir de la unión de los dos Strings
         String nomeCompleto = nome.concat(apelido);
         System.out.println(nomeCompleto);
