@@ -10,6 +10,8 @@ class MenuExample {
 
     public static final String ANSI_RED = "\u001B[31m";   // Rojo
 
+    public static final String ANSI_BLUE= "\\u001B[34m"; // Amarillo"]"
+
     public static final String ANSI_RESET = "\u001B[0m";  // Restablecer color
 
 
@@ -81,7 +83,18 @@ class MenuExample {
 
                 System.out.println("-------------------------------------------------");
 
-                System.out.println("BIIIENN, gana el sistema");
+                System.out.println(ANSI_BLUE + "BIIIENN, gana el sistema" + ANSI_RESET);
+                System.out.println(ANSI_BLUE + "Comprobando archivos" + ANSI_RESET);
+                try {
+
+                    Thread.sleep(2000); // Simula otro retraso
+
+                } catch (InterruptedException e) {
+
+                    Thread.currentThread().interrupt();
+
+                }
+
 
                 System.out.println("-------------------------------------------------");
 
