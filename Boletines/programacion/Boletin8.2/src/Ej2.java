@@ -6,7 +6,9 @@ public class Ej2 {
         //cambiarespaciosporcomas();
         //sustituirespacios();
         //sustituircaracteres();
+        imprimirporcolores();
     }
+
     public static void recorrerpalabra(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce a palabra a desglosar");
@@ -81,8 +83,10 @@ public class Ej2 {
 
             sc.close();
     }
+
     public static void imprimirporcolores(){
-        String str = "Hola, mundo!";char[] charArray = str.toCharArray();
+        String str = "Hola, mundo!";
+        char[] charArray = str.toCharArray();
         // Códigos ANSI para colores
         String[] colors = {"\u001B[31m", "\u001B[32m", "\u001B[33m", "\u001B[34m", "\u001B[35m", "\u001B[36m", "\u001B[0m"};
 
@@ -93,3 +97,4 @@ public class Ej2 {
         }
     }
 }
+
