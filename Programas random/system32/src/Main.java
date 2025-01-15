@@ -10,7 +10,7 @@ class MenuExample {
 
     public static final String ANSI_RED = "\u001B[31m";   // Rojo
 
-    public static final String ANSI_BLUE= "\\u001B[34m"; // Amarillo"]"
+    public static final String ANSI_BLUE= "\u001B[34m"; // Azul
 
     public static final String ANSI_RESET = "\u001B[0m";  // Restablecer color
 
