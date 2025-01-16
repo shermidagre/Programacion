@@ -6,7 +6,7 @@ public class Ej2 {
         //cambiarespaciosporcomas();
         //sustituirespacios();
         //sustituircaracteres();
-        imprimirporcolores();
+        //imprimirporcolores();
     }
 
     public static void recorrerpalabra(){
