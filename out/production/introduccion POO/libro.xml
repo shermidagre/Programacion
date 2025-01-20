@@ -1,0 +1,7 @@
+<dependencies>
+    <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-all</artifactId>
+        <version>4.0.24</version>
+    </dependency>
+</dependencies>
