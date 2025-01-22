@@ -8,6 +8,7 @@ public class ej10 {
         System.out.println("Introduce una contraseña");
         String contraseña = sc.nextLine();
         comprobarcontraseña(contraseña);
+        System.out.println(formatearnomes("pepe","gonzalez"));
 
     }
     static void comprobarcontraseña(String contraseña){
@@ -31,6 +32,7 @@ public class ej10 {
 
             }
             if(maius && minus && numero){
+
                 correcto = true;
             }
             if(correcto){
@@ -40,6 +42,25 @@ public class ej10 {
             }
 
         }
+    }
+    public static String formatearnomes(String nome, String apelido){
+
+        String nomeApelido;
+
+        String nomeMinusculas =nome.toLowerCase();
+        nomeMinusculas =nomeMinusculas.trim();
+
+        char caracterMaiuscula =Character.toUpperCase(nomeMinusculas.charAt(0));
+
+        nomeApelido = caracterMaiuscula + nomeMinusculas.substring(1);
+
+        String apelidoMinusculas =apelido.toLowerCase();
+        apelidoMinusculas =apelidoMinusculas.trim();
+        caracterMaiuscula = Character.toUpperCase(apelidoMinusculas.charAt(0));
+
+
+        return nomeApelido;
+
     }
 }
    /* static void comprobarContraseña(String contraseña) {
