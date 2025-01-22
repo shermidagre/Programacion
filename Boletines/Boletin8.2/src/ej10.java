@@ -5,10 +5,12 @@ public class ej10 {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Introduce una contraseña");
+       /* System.out.println("Introduce una contraseña");
         String contraseña = sc.nextLine();
         comprobarcontraseña(contraseña);
         System.out.println(formatearnomes("pepe","gonzalez"));
+        */
+recorrerpalabra();
 
     }
     static void comprobarcontraseña(String contraseña){
@@ -62,6 +64,29 @@ public class ej10 {
 
         return nomeApelido;
 
+    }
+    public static String contarpc(String palabra){
+        recorrerpalabra();
+
+
+
+    }
+
+
+public static void recorrerpalabra(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce a frase a desglosar");
+        String palabra = sc.nextLine();
+
+
+        for (int i = 0; i < palabra.length(); i++) {
+
+            char pedazo = palabra.charAt(i);
+
+            System.out.println("Carácter en posición " + i + ": " + pedazo);
+            //recorrer palabra
+
+        }
     }
 }
    /* static void comprobarContraseña(String contraseña) {
