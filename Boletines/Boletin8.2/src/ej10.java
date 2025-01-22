@@ -57,6 +57,7 @@ public class ej10 {
         String apelidoMinusculas =apelido.toLowerCase();
         apelidoMinusculas =apelidoMinusculas.trim();
         caracterMaiuscula = Character.toUpperCase(apelidoMinusculas.charAt(0));
+        nomeApelido = nomeApelido + "" + caracterMaiuscula + apelidoMinusculas.substring(1);
 
 
         return nomeApelido;
