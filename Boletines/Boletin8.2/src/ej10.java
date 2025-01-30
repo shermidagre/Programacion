@@ -68,8 +68,6 @@ recorrerpalabra();
     public static String contarpc(String palabra){
         recorrerpalabra();
 
-
-
     }
 
 
