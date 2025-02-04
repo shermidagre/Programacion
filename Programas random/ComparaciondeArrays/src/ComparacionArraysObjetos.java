@@ -31,7 +31,7 @@ public class ComparacionArraysObjetos {
 
         for (int i = 0; i < array1.length; i++) {
 
-            if (!array1[i].equals(array2[i])) { // Usar equals() para comparar strings
+            if (!array1[i].equals(array2[i])) { // Usar equals() para comparar Strings.strings
 
                 return false; // Si algún elemento es diferente, no son iguales
 
