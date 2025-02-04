@@ -12,4 +12,4 @@ Escribe unha función que diga si dous números enteiros son amigos. Dous númer
 Escribe a función que resolva o factorial dun número de forma recursiva.
 Escribe a función que resolva o resultado de elevar n veces o número m (mn) de forma recursiva.
 Escribe a función que resolva a serie de Fibonaci de forma recursiva.
-Escribir unha función que calcule de forma recursiva o máximo común divisor de dous números.
+Escribir unha función que calcule de forma recursiva o máximo común divisor de dous números.*/
