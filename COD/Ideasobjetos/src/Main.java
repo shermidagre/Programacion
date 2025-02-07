@@ -16,6 +16,7 @@ public class Main {
         personaxesecundario personaxesecundario1=new personaxesecundario();
         System.out.println("Hola"+personaxesecundario1.nome);
 
+
     }
 
 }
