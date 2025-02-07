@@ -12,6 +12,10 @@ public class Main {
 
         System.out.println(goku);
 
+        System.out.println("Hello dragon ball");
+        personaxesecundario personaxesecundario=new personaxesecundario();
+        System.out.println("Hola"+personaxesecundario.nome);
+
     }
 
 }
