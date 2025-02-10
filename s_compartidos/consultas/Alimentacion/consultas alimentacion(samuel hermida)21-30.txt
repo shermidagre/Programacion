@@ -1,0 +1,120 @@
+ ALIMENTACION
+
+ 21) amosar datos de produtos cuxo prezo este comprendido entre 5 e 10 (ambolos dous incluidos)
+
+(select * from produto where prezo>=5 and prezo<=10;)
+ 
+ m4   | 1 | chourizo   |     6
+ m6   | 1 | chourizo   |     5
+ m6   | 2 | xamon      |    10
+ m6   | 3 | mortadela  |     6
+ m6   | 4 | sardinha   |     5
+ m6   | 5 | polvo      |     7
+ m6   | 6 | berberecho |     6
+
+ 21*) amosar datos de produtos da marca -m6-,  cuxo prezo este comprendido entre 5 e 10 (ambolos dous incluidos)
+ 
+ (select * from produto where codm='m6' and prezo>=5 and prezo<=10;)
+
+ m6   | 1 | chourizo   |     5
+ m6   | 2 | xamon      |    10
+ m6   | 3 | mortadela  |     6
+ m6   | 4 | sardinha   |     5
+ m6   | 5 | polvo      |     7
+ m6   | 6 | berberecho |     6
+
+
+ 22) amosar media de prezos dos produtos de codigo de marca -m6-
+ 
+(select AVG(prezo) from produto where codm='m6';)
+
+ 6.5000000000000000
+
+group by
+
+ 23) amosar codigo de cada marca e media de produtos correspondentes a cada marca
+
+(select codm,AVG(prezo) from produto group by codm;)
+
+ m1   | 1.8000000000000000
+ m2   | 1.6000000000000000
+ m3   | 2.5000000000000000
+ m4   | 9.0000000000000000
+ m5   | 3.3333333333333333
+ m6   | 6.5000000000000000
+
+group by
+
+ 24) amosar codigo de cada marca e cantos produtos corresponden a cada marca
+
+(select codm,count(*) from produto group by codm;)
+
+ m1   |     5
+ m2   |     5
+ m3   |     4
+ m4   |     2
+ m5   |     3
+ m6   |     6
+
+
+
+
+ 25) amosar cantos clientes viven na zona de codigo -z1-
+
+(select count(*) from cliente where codz='z1';)
+
+     3
+     
+     group by
+
+ 26) amosa para cada codigo de zona cantos clientes vinen nela 
+
+(select codz,count(*) from cliente group by codz;)
+
+      |     2
+ z1   |     3
+ z3   |     1
+ z2   |     2
+
+group by 
+
+ 27) amosar cantos clientes hai para cada nome 
+
+(select nome,count(*) from cliente group by nome;)
+
+ pedro  |     2
+ eva    |     1
+ borja  |     1
+ carlos |     2
+ ana    |     1
+ luis   |     1
+
+group by 
+
+ 28) amosar para cada cliente de mail cantos clientes hai
+ 
+ select strpos(email, '@') from cliente ;
+ 
+ select substr('anax@hotmail.com',strpos('anax@hotmail.com','@'));
+ 
+ select substr(email,strpos(email,'@')), count(*) from cliente group by substr(email,strpos(email,'@'));
+ 
+
+ @hotmail.com |     3
+ @yahoo.com   |     1
+ @gmail.com   |     4
+
+ 29) amosar cantos clientes viven na zona -centro-
+
+(select count(*) from cliente where codz=(select codz from zona where nomz='centro');)
+
+     3
+
+ 30)amosar dni e nome de repartidores da zona -centro-
+ 
+ (select dni,nomr from repartidor where codz=(select codz from zona where nomz='centro');)
+
+ 369i  | celia
+ 3610j | jose
+ 3655y | eligio
+

@@ -1,0 +1,55 @@
+﻿1)amosar  codigo e nome de xogador e codigo e  nome do equipo no que esta
+
+select xogador.codx,xogador.nomx,equipo.codequ,equipo.nomequ from xogador join equipo on xogador.codequ=equipo.codequ;
+
+select codx,nomx,x.codequ equipoxogador,e.codequ equipodoxogador,nomequ from xogador x, equipo e where x.codequ=e.codequ;
+
+2)amosar  codigo e nome de xogador e codigo e  nome do equipo no que esta, se hai xogadores sen equipo asignado debe amosar igualmente o seu codigo e nome de xogador 
+
+select xogador.codx,xogador.nomx,equipo.codequ,equipo.nomequ from xogador left join equipo on xogador.codequ=equipo.codequ;
+
+(No hay ningun jugador sin equipo
+
+3)amosar  codigo e nome de xogador e codigo e  nome do equipo no que esta, se hai equipos sen xogadores asignados debe amosarse igualmente o codigo e o nome do equipo
+
+select xogador.codx,xogador.nomx,equipo.codequ,equipo.nomequ from xogador right join equipo on xogador.codequ=equipo.codequ;
+
+4)amosar  codigo e nome de xogador e codigo e  nome do equipo no que esta, se hai xogadores sen equipos asignados ou equipos  sen xogadores asignados  debe amosarse igualmente o codigo e o nome de distos xogadores e o codigo e nome de ditos equipos 
+
+select xogador.codx,xogador.nomx,equipo.codequ,equipo.nomequ from xogador full join equipo on xogador.codequ=equipo.codequ;
+
+5) amosara cantos xogadores ten cada equipo ( amosar codigo de equipo e numero de xogadores) 
+
+select nomequ,codequ,numx from equipo;
+
+select codequ,count(*) from xogador group by codequ;(Poniendo antes los valores de nomx en null)
+
+(Para ponerlos en null se debera poner: update equipo set numx = null;)
+
+
+6) amosar para cada nome de equipo cantos xogadores ten
+
+select nomequ,numx from equipo;
+
+select nomequ,count(*) from xogador,equipo where xogador.codequ=equipo.codequ group by nomequ; (Poniendo antes los valores de nomx en null)
+
+7) amosar para cada nome de equipo cantos xogadores ten . se non ten xogadores debe amosarse un cero para o numero de xogadores de dito equipo 
+
+select nomequ, COALESCE(numx, '0') AS numx from equipo;
+
+select nomequ,count(codx) from xogador right join equipo on xogador.codequ=equipo.codequ group by nomequ;(En caso de que los valores sean en null, dentro del count se debera poner un campo aleatorio para la otra tabla)
+
+8) amosar cantos partidos se celebran en cada estadio ( amosar codigo de estadio e numero de partidos celebradosnel )
+
+select codest,count(*) from partido group by codest;
+
+9) amosar para cada nome de estadio  cantos cantos partidos se celebran nel 
+
+select nomest,count(*) from partido,estadio where estadio.codest=partido.codest group by nomest;
+
+
+10) amosar para cada nome de estadio  cantos cantos partidos se celebran nel . Se non se celebrou nengun partido en algun estadio debe amosarse un cero para o numero de partidos celebrados en dito estadio.
+
+select nomest,count(codpar) from partido right join estadio on estadio.codest=partido.codest group by nomest;
+
+

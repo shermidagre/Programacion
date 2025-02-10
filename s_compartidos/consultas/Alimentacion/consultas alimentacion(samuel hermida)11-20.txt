@@ -1,0 +1,83 @@
+ ALIMENTACION
+
+ SUM(campo)  suma os valores contidos no campo especificado
+
+ 11) amosa a suma ou  total final de todos os pedidos
+ 
+(select SUM(total) from pedido;)
+
+ 441
+
+ 13) calcula o total final dos pedidos do cliente de nif -368h-
+ 
+(select SUM(total) from pedido where nif='368h';)
+
+  53
+
+ 14)calcula a suma  dos totais dos pedidos -p14- e -p15-e -p16-
+ 
+(select SUM(total) from pedido where codp='p14' or codp='p15' or codp= 'p16';)
+
+  44
+
+  AVG(campo)  calcula a media  dos valores contidos no campo especificado+
+ NOTA: avg non ten en conta os valores nulos ( igual que count ou sum)
+
+ 15)calcula o valor medio   dos totais dos pedidos -p14- e -p15-e -p16-
+ 
+(select AVG(total) from pedido where codp='p14' or codp='p15' or codp= 'p16';)
+
+ 22.0000000000000000
+
+ 22.0000000000000000
+
+ 16) calcula o valor medio   dos totais dos pedidos -p14- e -p15-e -p16- tendo en conta os nulos parao calculo da media
+ 
+(select SUM(total)*1.0/count(*) from pedido where codp='p14' or codp='p15' or codp= 'p16';)
+
+ 14.6666666666666667
+
+ 14.6666666666666667
+
+                                                      +
+ Operador LIKE :                                      +
+         % : sustitue a calqueira numero de caracteres+
+         _ :  sustitue a un caracter
+
+ 17) amosar nif,nome e telefono dos clientes cuxo nome remate na letra -a-
+ 
+(select nif,nome,telefono from cliente where nome like '%a';)
+
+ 361a | ana   | 986111111
+ 364d | borja | 986444444
+ 366f | eva   | 986666666
+
+ 18) amosar nif, nome e mail de todas as persoas que teñen correo en gmail.
+ 
+(select nif,nome,email from cliente where email like '%gmail%';)
+
+ 362b | pedro  | pedroc@gmail.com
+ 364d | borja  | borjap@gmail.com
+ 366f | eva    | evab@gmail.com
+ 368h | carlos | carlosr@gmail.com
+
+ 19) amosar nif, nome e mail de todos os clientes que teñan unha -o- +
+ na penúltima letra do seu nome.
+ 
+(select nif,nome,email from cliente where nome like '%o_')
+
+ 363c | carlos | carlosc@hotmail.com
+ 368h | carlos | carlosr@gmail.com
+
+ 20) amosar datos dos produtos correspondentes a marca de codigo de marca -m6-
+ 
+ (select * from produto where codm ='m6';)
+ 
+  m6   | 1 | chourizo   |     5
+ m6   | 2 | xamon      |    10
+ m6   | 3 | mortadela  |     6
+ m6   | 4 | sardinha   |     5
+ m6   | 5 | polvo      |     7
+ m6   | 6 | berberecho |     6
+
+

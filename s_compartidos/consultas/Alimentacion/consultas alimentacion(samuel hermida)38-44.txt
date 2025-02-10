@@ -1,0 +1,171 @@
+ ALIMENTACION
+
+ 
+ -- Consulta Cruzadas
+
+ 38) amosar nif,nome e codigo de zona dos clientes
+
+(select nif,nome,nomz from cliente;)
+
+
+ 361a | ana    | z1
+ 362b | pedro  | z1
+ 363c | carlos | 
+ 364d | borja  | z2
+ 365e | pedro  | 
+ 366f | eva    | z2
+ 367g | luis   | z3
+ 368h | carlos | z1
+
+ 39) amosar nif,nome e nome de zona onde viven dos clientes
+
+(select nif,nome,nomz from cliente,zona where cliente.codz=zona.codz;)
+
+ 361a | ana    | centro
+ 362b | pedro  | centro
+ 364d | borja  | radio1
+ 366f | eva    | radio1
+ 367g | luis   | radio2
+ 368h | carlos | centro
+
+ 40) amosar dni,nome e nome de zona onde reparten os repartidores
+
+select dni,nome,nomz from repartidores,zona where repartidores.codz=zona.codz;
+
+
+ 369i  | celia  | centro
+ 3610j | jose   | centro
+ 3611k | felipe | radio1
+ 3612l | daniel | radio2
+ 3655y | eligio | centro
+
+ 41) amosar matricula de cada furgoneta e codigo dos pedidos que foron cargados nela
+ 
+(select matricula,codp from furgoneta,carga where furgoneta.nf=carga.nf;)
+
+ ab121     | p1
+ ab121     | p2
+ ab121     | p3
+ ab121     | p4
+ ab122     | p5
+ ab122     | p6
+ ab122     | p7
+ ab122     | p8
+ ab121     | p9
+ ab121     | p10
+ ab121     | p11
+ ab122     | p12
+ ab122     | p14
+ ab122     | p15
+
+ 42) amosar nome da marca e nome  todos os produtos
+ 
+(select nome,nomm from produto,marca
+where produto.codm=marca.codm;)
+
+ katia    | platano
+ katia    | maza
+ katia    | pera
+ katia    | laranxa
+ katia    | kiwi
+ larsa    | enteira
+ larsa    | desnatada
+ larsa    | semi
+ larsa    | iogurnat
+ larsa    | iogurmues
+ alfageme | sardinha
+ alfageme | bonito
+ alfageme | mexillon
+ alfageme | choco
+ pozo     | chourizo
+ pozo     | xamon
+ miau     | sardinha
+ miau     | bonito
+ miau     | mexillon
+ argal    | chourizo
+ argal    | xamon
+ argal    | mortadela
+ argal    | sardinha
+ argal    | polvo
+ argal    | berberecho
+
+ 43) amosar nome e orixe de cada froita 
+ 
+(select nome,orixe from produto,froitas where froitas.codm=produto.codm and froitas.n=produto.n;)
+
+ platano | tenerife
+ maza    | murcia
+ pera    | pontevedra
+ laranxa | valencia
+
+ 44) amosar nif,nome de todos os clientes e ademais o nome de zona onde viven 
+
+ aproximacion ao resultado, pero non correcto
+ 
+(select nif,nome,nomz from cliente,zona where cliente.codz=zona.codz;)
+
+ 361a | ana    | centro
+ 362b | pedro  | centro
+ 364d | borja  | radio1
+ 366f | eva    | radio1
+ 367g | luis   | radio2
+ 368h | carlos | centro
+
+ resultado correcto
+
+(select nif,nome,nomz from cliente left join zona on cliente.codz=zona.codz;) 
+
+// El left join entre las entidades se coloca para dar prioridad al nomz de cliente.
+
+ 361a | ana    | centro
+ 362b | pedro  | centro
+ 363c | carlos | 
+ 364d | borja  | radio1
+ 365e | pedro  | 
+ 366f | eva    | radio1
+ 367g | luis   | radio2
+ 368h | carlos | centro
+ 
+ *CURIOSIDAD, NO BOLETIN*
+ 
+¿? Que pasa si se cambia cliente por zona ?¿
+
+select nif,nome,nomz from zona left join cliente on zona.codz=cliente.codz;
+
+//Lo que cambias es que al ser valor left le da prioridad a el nomz de zonas por lo cual salen solo amosadas todas las zonas
+
+nif  |  nome  |  nomz  
+------+--------+--------
+ 361a | ana    | centro
+ 362b | pedro  | centro
+ 364d | borja  | radio1
+ 366f | eva    | radio1
+ 367g | luis   | radio2
+ 368h | carlos | centro
+      |        | radio3
+      
+//Para amosar todas las zonas tambien se podria realizar lo siguiente, y es cambiar el left por un right 
+
+(select nif,nome,nomz from cliente right join zona on cliente.codz=zona.codz;)
+
+//DEnominandolo con un right tambien amosara lo mismo de la tabla anterior
+
+¿? Y si se quiere amosar todas las zonas independientemente de si tienen o no campos asignados  ?¿
+
+(select nif,nome,nomz from cliente full  join zona on cliente.codz=zona.codz;)
+
+// Para conseguir todos los campos independiente si tiene valor o no se le pondra full join entre las dos entidades
+
+nif  |  nome  |  nomz  
+------+--------+--------
+ 361a | ana    | centro
+ 362b | pedro  | centro
+ 363c | carlos | 
+ 364d | borja  | radio1
+ 365e | pedro  | 
+ 366f | eva    | radio1
+ 367g | luis   | radio2
+ 368h | carlos | centro
+      |        | radio3
+
+

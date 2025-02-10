@@ -1,0 +1,82 @@
+ ALIMENTACION
+
+ 
+ 31) amosar nif do cliente qu ten por email -carlosr@gmail.com-
+
+(select nif from ciente where email='carlosr@gmail.com';)
+
+ 368h
+
+
+ 32) amosar codigo de pedidos cargados na furgoneta de matricula -ab121-
+
+select codp from carga where nf=(select nf from furgoneta where matricula='ab121');
+
+ p1
+ p2
+ p3
+ p4
+ p9
+ p10
+ p11
+
+ 33) amosar nome e prezo de produtos da marca -argal-
+ 
+ select nome,prezo from produto where codm=(select codm from marca where nomm='argal');
+
+ chourizo   |     5
+ xamon      |    10
+ mortadela  |     6
+ sardinha   |     5
+ polvo      |     7
+ berberecho |     6
+
+ 34) amosar nif dos clientes que viven na zona de nome  -centro-
+
+select nif from cliente where codz=(select codz from zona where nomz='centro');
+
+ z1
+
+ 361a
+ 362b
+ 368h
+
+ 35) amosar codigos de pedidos de clientes que viven na zona de nome  -centro-
+
+select codp from pedido where nif in(select nif from cliente where codz=(select codz from zona where nomz='centro'));
+
+ p1
+ p2
+ p3
+ p5
+ p7
+ p9
+ p10
+ p12
+ p15
+ p16
+ p17
+
+ 36) amosar numeros de furgoneta onde se cargaron pedidos de clientes que viven na zona de nome  -centro-
+ 
+ select nf from carga where codp in  (select codp from pedido where nif in(select nif from cliente where codz=(select codz from zona where nomz='centro')));
+
+
+  2
+  1
+  1
+  2
+  2
+  1
+  1
+  2
+  1
+
+ 37) amosar sen repeticion os numeros de furgoneta onde se cargaron pedidos de clientes que viven na zona de nome  -centro-
+ 
+select distinct nf from carga where codp in  (select codp from pedido where nif in(select nif from cliente where codz=(select codz from zona where nomz='centro')));
+
+
+  1
+  2
+
