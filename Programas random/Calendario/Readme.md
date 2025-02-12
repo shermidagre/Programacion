@@ -1,6 +1,3 @@
-- **shermidagre**
-
-
 # Proyecto de Manejo de Fechas en Java
 
 
@@ -32,4 +29,4 @@ Este proyecto es una aplicación en Java que permite al usuario gestionar y modi
 
 
 
-# Seguimos analziando fallos...
+# Seguimos analizando fallos...
