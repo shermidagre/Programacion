@@ -25,9 +25,11 @@ Este proyecto es una aplicación en Java que permite al usuario gestionar y modi
 - Java 8 o superior.
 
 - Un entorno de desarrollo integrado (IDE) como IntelliJ IDEA, Eclipse o NetBeans.
+
 ## Problemas Conocidos
 
-
 - La lógica actual no maneja correctamente el desbordamiento de días si se incrementan más de 30 días a la vez. Se recomienda implementar una lógica adicional para manejar este caso.
+
+
 
 # Seguimos analziando fallos...
