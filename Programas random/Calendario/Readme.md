@@ -1,3 +1,6 @@
+- **shermidagre**
+
+
 # Proyecto de Manejo de Fechas en Java
 
 
@@ -27,5 +30,4 @@ Este proyecto es una aplicación en Java que permite al usuario gestionar y modi
 
 - La lógica actual no maneja correctamente el desbordamiento de días si se incrementan más de 30 días a la vez. Se recomienda implementar una lógica adicional para manejar este caso.
 
-
-- **shermidagre**: 
+# Seguimos analziando fallos...
