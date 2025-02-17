@@ -57,7 +57,9 @@ public class Cilindro extends Circulo {
         return  calculoArea() * altura; // Fórmula del volumen: π * r² * h
 
     }
-
+    public double calculoSuperficie() {
+        return 2 * super.calculoArea() + super.calculoPerimetro() * altura;
+    }
 
     @Override
 

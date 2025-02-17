@@ -85,8 +85,16 @@ public class Main {
             Cilindro cilindro1= new Cilindro(2,6,3,6);
 
             System.out.println(cilindro1.toString());
-            System.out.println("O volume do cilindro e "+cilindro1.calcularVolumen());
+            System.out.println("O volume do cilindro e "+cilindro1.calculoSuperficie());
             System.out.println("O area do cilindro e "+cilindro1.calculoArea());
+
+            //Imprimir prisma
+
+            Prisma prima1= new Prisma(2,7,3,3,2);
+
+            System.out.println(prima1.toString());
+            System.out.println("O volume do prisma e "+prima1.calcularVolumen());
+
         }
 
     }
