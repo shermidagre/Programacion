@@ -3,9 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner entradaTeclado = new Scanner(System.in);
-        String[] mes31 = {"Enero","Marzo","Mayo","Julio","Agosto","Octubre","Diciembre"};
-        String[] mes30 ={"Abril","Junio","Septiembre","Noviembre"};
-        String[] febrero={"Febrero"};
+        String[] meses={"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
         int aumentarDia=0;
         int aumentarMes=0;
         int aumentarAño=0;
@@ -18,7 +16,7 @@ public class Main {
         boolean sonIguales = fecha.dataigual(15, 8, 2023); // Compare with another date
         System.out.println("Las fechas son iguales: " + sonIguales);
         fecha.mostrardata(fecha.getdia(), fecha.getmes(), fecha.getaño());
-        System.out.println("Si quieres cambiar algun dato de la fecha o la fecha entera escribe uno, en caso de que no 0");
+        System.out.println("Si quieres cambiar algun dato de la fecha o la fecha entera pulse 1 , en caso de que no 0");
         cambiardata = entradaTeclado.nextInt();
 
         if (cambiardata == 1) {
@@ -111,24 +109,33 @@ public class Main {
 
             case 1:
 
+                System.out.println("A empezar bien la semana");
+
+                break;
+
             case 2:
 
             case 3:
 
-                System.out.println("Es un día de la semana.");
+                System.out.println("El peor dia de la semana");
 
                 break;
 
             case 4:
 
+                System.out.println("Es casi el fin de semana.");
+
             case 5:
 
-                System.out.println("Es casi el fin de semana.");
+                System.out.println("Viernes vigo.");
 
                 break;
 
             case 6:
 
+                System.out.println("Es el fin de semana.");
+
+                break;
             case 7:
 
                 System.out.println("Es el fin de semana.");
@@ -147,73 +154,73 @@ public class Main {
 
             case 1:
 
-                System.out.println(mes31[0] + " tiene 31 días.");
+                System.out.println(meses[0] + " tiene 31 días.");
 
                 break;
 
             case 2:
 
-                System.out.println(febrero[0] + " tiene 28 días."); // Considerando un año no bisiesto
+                System.out.println(meses[1] + " tiene 28 días."); // Considerando un año no bisiesto
 
                 break;
 
             case 3:
 
-                System.out.println(mes31[1] + " tiene 31 días.");
+                System.out.println(meses[2] + " tiene 31 días.");
 
                 break;
 
             case 4:
 
-                System.out.println(mes30[0] + " tiene 30 días.");
+                System.out.println(meses[3] + " tiene 30 días.");
 
                 break;
 
             case 5:
 
-                System.out.println(mes31[2] + " tiene 31 días.");
+                System.out.println(meses[4] + " tiene 31 días.");
 
                 break;
 
             case 6:
 
-                System.out.println(mes30[1] + " tiene 30 días.");
+                System.out.println(meses[5] + " tiene 30 días.");
 
                 break;
 
             case 7:
 
-                System.out.println(mes31[3] + " tiene 31 días.");
+                System.out.println(meses[6] + " tiene 31 días.");
 
                 break;
 
             case 8:
 
-                System.out.println(mes31[4] + " tiene 31 días.");
+                System.out.println(meses[7] + " tiene 31 días.");
 
                 break;
 
             case 9:
 
-                System.out.println(mes30[2] + " tiene 30 días.");
+                System.out.println(meses[8] + " tiene 30 días.");
 
                 break;
 
             case 10:
 
-                System.out.println(mes31[5] + " tiene 31 días.");
+                System.out.println(meses[9] + " tiene 31 días.");
 
                 break;
 
             case 11:
 
-                System.out.println(mes30[3] + " tiene 30 días.");
+                System.out.println(meses[10] + " tiene 30 días.");
 
                 break;
 
             case 12:
 
-                System.out.println(mes31[6] + " tiene 31 días.");
+                System.out.println(meses[11] + " tiene 31 días.");
 
                 break;
 
@@ -380,7 +387,7 @@ public void ajustarFecha() {
         contadoraño++;
     }
     public  void mostrardata(int dia, int mes,int año){
-        System.out.println("El calendario esta inicializado a dia "+dia+ " de "+mes+ " del año "+año);
+        System.out.println("El calendario esta inicializado a dia "+dia+ " del "+mes+ " del "+año);
     }
 
     public boolean dataigual(int diaComparar, int mesComparar, int añoComparar) {
