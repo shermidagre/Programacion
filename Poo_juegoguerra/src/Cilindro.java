@@ -1,23 +1,78 @@
-public class Cilindro extends Punto {
-    //declaración de propiedades
+public class Cilindro extends Circulo {
+
     private double radio;
 
-    //CONSTRUCTOR
-    //Para definir al constructor necesitamos los variables de la superclase "Punto"
-    public Cilindro (double x, double y, double r){
+    private double altura;
 
-        super (x, y); //inicializa una superclase, hace referencia a la clase que hereda --> this.Punto(x,y)
+    public Cilindro(double x, double y, double r, double h) {
 
-        radio = r; // ¡OJO VA A DAR ERROR DE HERENCIA! Una buena técnica, que evita problemas es usar get y set (esto es una práctica)
+        super(x, y, r);
 
-    }//end constructor
+        setAltura(h);
 
-    public double getRadio() {
-        return radio;
     }
 
+
+    // get y set
+
+    public double getRadio() {
+
+        return radio;
+
+    }
+
+
     public void setRadio(double radio) {
+
         this.radio = radio;
+
+    }
+
+
+    public double getAltura() {
+
+        return altura;
+
+    }
+
+
+    public void setAltura(double h) {
+        if (h < 0) {
+            throw new IllegalArgumentException("La altura no puede ser negativa.");
+        } else {
+            altura = h;
+        }
+    }
+
+
+
+    /**
+
+     * Calcula el volumen del cilindro
+
+     * @return el volumen
+
+     */
+
+    public double getVolumen() {
+
+        return Math.PI * Math.pow(radio, 2) * altura; // Fórmula del volumen: π * r² * h
+
+    }
+
+
+    @Override
+
+    public String toString() {
+
+        return "Cilindro con centro en: " + super.toString() +
+
+                ", radio: " + radio +
+
+                ", altura: " + altura +
+
+                ", volumen: " + getVolumen();
+
     }
 
 }
