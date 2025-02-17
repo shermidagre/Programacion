@@ -52,9 +52,9 @@ public class Cilindro extends Circulo {
 
      */
 
-    public double getVolumen() {
+    public double calcularVolumen() {
 
-        return Math.PI * Math.pow(radio, 2) * altura; // Fórmula del volumen: π * r² * h
+        return  calculoArea() * altura; // Fórmula del volumen: π * r² * h
 
     }
 
@@ -69,7 +69,7 @@ public class Cilindro extends Circulo {
 
                 ", altura: " + altura +
 
-                ", volumen: " + getVolumen();
+                ", volumen: " + calcularVolumen();
 
     }
 

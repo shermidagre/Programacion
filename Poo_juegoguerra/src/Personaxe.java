@@ -244,7 +244,13 @@ class Personaxe {
 
             System.out.println("Perímetro: " + circulo1.calculoPerimetro());
 
+            //Imprimir cilindro
 
+            Cilindro cilindro1= new Cilindro(2,6,3,6);
+
+            System.out.println(cilindro1.toString());
+            System.out.println("O volume do cilindro e "+cilindro1.calcularVolumen());
+            System.out.println("O area do cilindro e "+cilindro1.calculoArea());
         }
 
     }
