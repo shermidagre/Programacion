@@ -162,8 +162,6 @@ class Personaxe {
         return apariencia;
     }
 
-
-    /* get y set */
     public class main {
         public static void main(String[] args) {
 
@@ -232,6 +230,45 @@ class Personaxe {
             p1.setY(2); // Establecer un valor positivo
 
             System.out.println("Punto 1 después de modificar: (" + p1.getX() + ", " + p1.getY() + ")");
+
+
+            //Imprimir circulo
+
+        try {
+
+            Circulo circulo1 = new Circulo("3,4", 5);
+
+            System.out.println(circulo1);
+
+
+
+            Circulo circulo2 = new Circulo(); // Constructor por defecto
+
+            System.out.println(circulo2);
+
+
+
+            Circulo circulo3 = new Circulo(new Punto(1, 2), 3); // Usando un objeto Punto
+
+            System.out.println(circulo3);
+
+
+
+            Circulo circulo4 = new Circulo("5,6", 2); // Usando el constructor con string
+
+            System.out.println(circulo4);
+
+
+
+            // Ejemplo de manejo de error
+
+            Circulo circuloError = new Circulo("invalid", 2); // Esto lanzará una excepción
+
+        } catch (IllegalArgumentException e) {
+
+            System.out.println("Error: " + e.getMessage());
+
+        }
 
         }
 
