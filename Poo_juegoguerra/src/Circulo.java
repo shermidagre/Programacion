@@ -74,48 +74,6 @@ public class Circulo extends Punto { // Crea una clase Circulo que hereda de la 
 
     // Constructor que recibe un string con coordenadas
 
-    public Circulo(String punto, double r) {
-
-        // Verifica que el string no esté vacío
-
-        if (punto == null || punto.isEmpty()) {
-
-            throw new IllegalArgumentException("El punto no puede ser nulo o vacío.");
-
-        }
-
-
-        // Divide la cadena en coordenadas
-
-        String[] coords = punto.split(",");
-
-
-        // Verifica que haya exactamente dos coordenadas
-
-        if (coords.length != 2) {
-
-            throw new IllegalArgumentException("El formato del punto debe ser 'x,y'.");
-
-        }
-
-
-        try {
-
-            double x = Double.parseDouble(coords[0].trim()); // Convierte la primera parte a double
-
-            double y = Double.parseDouble(coords[1].trim()); // Convierte la segunda parte a double
-
-            super(x, y); // Inicializa el círculo con las coordenadas
-
-            radio = r; // Inicializa el radio
-
-        } catch (NumberFormatException e) {
-
-            throw new IllegalArgumentException("Las coordenadas deben ser números válidos.", e);
-
-        }
-
-    }
 
     // Constructor de copia
 
