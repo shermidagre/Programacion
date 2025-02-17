@@ -10,9 +10,9 @@ public class Circulo extends Punto { // Crea una clase Circulo que hereda de la 
 
     public Circulo(double x, double y, double r) {
 
-        super(x, y); // Inicializa la superclase
+        super(x, y);
 
-        radio = r; // Inicializa el radio
+        radio = r;
 
     }
 
