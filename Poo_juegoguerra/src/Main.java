@@ -1,3 +1,10 @@
+
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+
 public class Main {
         static void main(String[] args) {
 
@@ -94,7 +101,139 @@ public class Main {
             Prisma prima1= new Prisma(2,7,3,3,2);
 
             System.out.println(prima1.toString());
+
             System.out.println("O volume do prisma e "+prima1.calcularVolumen());
+
+
+           // Llamamos a creacion de conta
+
+
+            List<String> titulares = new ArrayList<>(); // Si no llamamos a la array de titulares antes de crear la cuenta no nos va a dejar llamarla por parametros
+
+
+            // Realizamos el caso de la creacion de dos titulares ficticios
+
+
+            titulares.add("Juan Pérez");
+
+
+            titulares.add("Ana Gómez");
+
+
+            // Aqui ya podremos realizar la creacion de la nueva cuenta
+
+
+            Contacorrente cuenta = new Contacorrente(titulares, "12345678901234567890", "12345678A", 1000);
+
+
+            // Mostrar información de la cuenta
+
+
+            cuenta.mostrarInformacion();
+
+
+            // Realizar un depósito
+
+
+            cuenta.ingresarDinero(500);
+
+
+            System.out.println("Después del depósito:"); // Se actualiza el valor automaticamente y se sobreescribe por lo cual procedemos a llamar a la informacion actual
+
+
+            cuenta.mostrarInformacion();
+
+
+            // Realizar un retiro
+
+
+            cuenta.sacarDinero(200);
+
+
+            System.out.println("Después del retiro:"); // Se actualiza el valor automaticamente y se sobreescribe por lo cual procedemos a llamar a la informacion actual
+
+
+            cuenta.mostrarInformacion();
+
+
+            // Intentar establecer un nuevo número de cuenta
+
+
+            try {
+
+                cuenta.setnConta("09876543210987654321");
+
+
+                System.out.println("Número de cuenta actualizado: " + cuenta.getnConta());
+
+
+            } catch (IllegalArgumentException e) { // En caso de que sea erroneo mostrara un argumento ilegal
+
+
+                System.out.println(e.getMessage());
+
+
+            }
+
+
+            // Intentar establecer un nuevo número de cuenta no valido
+
+            try {
+
+
+                cuenta.setnConta("09876543210987ç'i4321");
+
+
+                System.out.println("Número de cuenta actualizado: " + cuenta.getnConta());
+
+
+            } catch (IllegalArgumentException e) { // Se quedara el numero de cuenta anterior anterior y lanzara error
+
+
+                System.out.println(e.getMessage());
+
+
+            }
+
+
+            // Intentar establecer un nuevo NIF
+
+            try {
+
+
+                cuenta.setNif("12345678B"); // Este NIF es válido
+
+
+                System.out.println("NIF actualizado: " + cuenta.getNif());
+
+
+            } catch (IllegalArgumentException e) { // En caso de que sea erroneo mostrara un argumento ilegal
+
+
+                System.out.println(e.getMessage());
+
+
+            }
+
+
+            // Intentar establecer un NIF no válido
+
+            try {
+
+
+                cuenta.setNif("1234567"); // Este NIF no es válido
+
+
+                System.out.println("NIF actualizado: " + cuenta.getNif());
+
+
+            } catch (IllegalArgumentException e) { // Se quedara el nif anterior y lanzara error
+
+
+                System.out.println(e.getMessage());
+
+
+            }
 
         }
 
