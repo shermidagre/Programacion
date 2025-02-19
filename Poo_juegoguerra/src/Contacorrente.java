@@ -165,13 +165,18 @@ public class Contacorrente {
     }
 
     public void setnConta(String nConta) {
-        /* Verifica si cuenta es null,
-           Verifica si la cuenta tiene una longitud distinta a la que necesitamos(esto se elegira dependiendo en el pais que te encuentres, pondremos la establecida en españa)
-            Y por ultimo comprueba matches verifica si la cadena está compuesta únicamente por números.
-                */
-        if (nConta == null || nConta.length() != 8 || !nConta.matches("\\d+")) {
 
-            throw new IllegalArgumentException("Número de cuenta no válido. Debe tener 8 dígitos.");
+        /*
+
+           Verifica si cuenta es null,
+           Verifica si la cuenta tiene una longitud distinta a la que necesitamos(esto se elegira dependiendo en el pais que te encuentres, pondremos la establecida en españa)
+           Y por ultimo comprueba matches verifica si la cadena está compuesta únicamente por números.
+
+         */
+
+        if (nConta == null || nConta.length() != 20 || !nConta.matches("\\d+")) {
+
+            throw new IllegalArgumentException("Número de cuenta no válido. Debe tener "+nConta.length()+" dígitos.");
 
         }
 
