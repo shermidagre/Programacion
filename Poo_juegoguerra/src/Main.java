@@ -29,6 +29,7 @@ public class Main {
 
             System.out.println("El equipamiento es: ");
 
+
             for (String equipamiento : equipamientoPersonaje) {
 
                 System.out.println(equipamiento);
