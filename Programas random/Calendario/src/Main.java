@@ -238,7 +238,181 @@ public class Main {
     }
 
 }
+class Hora {
 
+    enum FormatoHora{DOCE, VINTECATRO}
+
+    private int segundos;
+
+    private int minutos;
+
+    private int horas;
+
+
+    // Constructor por defecto
+
+    public Hora() {
+
+        this.segundos = 0;
+
+        this.minutos = 0;
+
+        this.horas = 0;
+
+    }
+
+
+    // Constructor con parámetros
+
+    public Hora(int horas, int minutos, int segundos, String formatohoras) {
+
+        setFormato(formatohoras);
+
+        setSegundos(segundos);
+
+        setMinutos(minutos);
+
+        setHoras(horas);
+
+        ajustarHora(); // Ajustar la hora en caso de que los valores sean inválidos
+
+    }
+
+    // Métodos get y set
+
+    public void setFormato(String formatohoras){
+        if (formatohoras.toUpperCase().equals("DOCE") || formatohoras.toUpperCase().equals("VINTECATRO"))
+            this.formatohoras;
+
+    }
+
+
+    public String toString() {
+        String cadeahora;
+        if (formatohoras == FormatoHora.VINTECATRO) {
+            cadeahora = "A hora e" + segundos + minutos + horas;
+        } else {
+            if (horas > 11) {
+                cadeahora = "A hora e" + segundos + minutos + (horas - 12);
+            }
+            else
+        }
+    }
+
+
+
+    public int getSegundos() {
+
+        return segundos;
+
+    }
+
+
+    public void setSegundos(int segundos) {
+
+        if(segundos>=0 && segundos<60)
+
+        this.segundos = segundos;
+
+        else this.segundos=0;
+
+        ajustarHora();
+
+    }
+
+
+    public int getMinutos() {
+
+        return minutos;
+
+    }
+
+
+    public void setMinutos(int minutos) {
+
+        if(minutos>=0 && minutos<60)
+
+            this.minutos = minutos;
+
+        else this.minutos=0;
+
+        ajustarHora();
+
+    }
+
+
+    public int getHoras() {
+
+        return horas;
+
+    }
+
+
+    public void setHoras(int horas) {
+
+        if(horas>=0 && horas<24)
+
+            this.horas = horas;
+
+        else this.horas=0;
+
+        ajustarHora();
+    }
+
+
+    // Método para ajustar la hora
+
+    private void ajustarHora() {
+
+        // Ajustar segundos
+
+        if (segundos >= 60) {
+
+            minutos += segundos / 60;
+
+            segundos = segundos % 60;
+
+        } else if (segundos < 0) {
+
+            minutos += (segundos / 60) - 1; // Resta un minuto si hay segundos negativos
+
+            segundos = (segundos % 60 + 60) % 60; // Ajustar segundos a un rango positivo
+
+        }
+
+
+        // Ajustar minutos
+
+        if (minutos >= 60) {
+
+            horas += minutos / 60;
+
+            minutos = minutos % 60;
+
+        } else if (minutos < 0) {
+
+            horas += (minutos / 60) - 1; // Resta una hora si hay minutos negativos
+
+            minutos = (minutos % 60 + 60) % 60; // Ajustar minutos a un rango positivo
+
+        }
+
+
+        // Ajustar horas
+
+        if (horas >= 24) {
+
+            horas = horas % 24; // Mantener horas en un rango de 0 a 23
+
+        } else if (horas < 0) {
+
+            horas = (horas % 24 + 24) % 24; // Ajustar horas a un rango positivo
+
+        }
+
+    }
+
+}
 
 
 class Data {
@@ -251,9 +425,10 @@ class Data {
     private int contadoraño;
 
     public Data() {
-        dia = 0;
-        mes = 0;
-        año = 0;
+
+        setaño(año);
+        setdia(dia);
+        setmes(mes);
         contadordia = 1;
         contadormes = 1;
         contadoraño = 0;
@@ -371,6 +546,7 @@ public void ajustarFecha() {
     public int getaño() {
         return año;
     }
+
     public Data(int d,int m, int a){
         setdia(d);
         setmes(m);
