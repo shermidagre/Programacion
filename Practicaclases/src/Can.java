@@ -27,4 +27,5 @@ public class Can extends Mamiferos implements Comunicacion{
         System.out.println("umm");
         return true;
     }
+
 }
