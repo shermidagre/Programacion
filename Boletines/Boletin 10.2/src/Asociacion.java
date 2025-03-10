@@ -8,8 +8,16 @@ public abstract class Asociacion {
         return DNI;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setDni(String dni) {
+
+        if (dni == null || dni.isEmpty()) {
+
+            throw new IllegalArgumentException("El DNI no puede estar vacío.");
+
+        }
+
+        this.DNI = dni;
+
     }
 
     public String getNome() {
@@ -22,3 +30,4 @@ public abstract class Asociacion {
 
     public abstract String aCadea();
 }
+

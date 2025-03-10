@@ -60,6 +60,12 @@ public class Socios extends Asociacion implements gastosIngresos{
 
     public void setCuota(double cuota) {
 
+        if (cuota < 0) {
+
+            throw new IllegalArgumentException("La cuota no puede ser negativa.");
+
+        }
+
         this.cuota = cuota;
 
     }
