@@ -78,7 +78,7 @@ public class Socios extends Asociacion implements gastosIngresos{
 
     public String aCadea() {
 
-        return super.aCadea() + ", Dirección: " + direccion + ", Provincia: " + provincia + ", Cuota: " + cuota;
+        return aCadea() + ", Dirección: " + direccion + ", Provincia: " + provincia + ", Cuota: " + cuota;
 
     }
 }
