@@ -1,28 +1,27 @@
-import java.util.Date;
-public class Traballadores extends Asociacion{
+import DataHora.Data;
+public abstract class Traballadores extends Asociacion implements gastosIngresos{
 
-    private Date fechaIngreso;
+    public Data fechaingreso;
 
 
-    public Date getFechaIngreso() {
-
-        return fechaIngreso;
-
+    public Traballadores(String DNI, String Nome,Data fechaingreso){
+        super(DNI,Nome);
+        this.fechaingreso=fechaingreso;
     }
 
-
-    public void setFechaIngreso(Date fechaIngreso) {
-
-        this.fechaIngreso = fechaIngreso;
-
+    public String getFecha() {
+        return fechaingreso.toString();
     }
 
+    public void setFecha(String Data) {
+        Data = fechaingreso.toString();
+    }
 
     @Override
 
     public String aCadea() {
 
-        return "DNI: " + getDNI() + ", Nombre: " + getNome() + ", Fecha de Ingreso: " + fechaIngreso;
+        return super.aCadea() + fechaingreso.toString();
 
     }
 }

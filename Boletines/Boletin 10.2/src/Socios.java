@@ -1,12 +1,24 @@
-import java.util.Date;
+import DataHora.Data;
 public class Socios extends Asociacion implements gastosIngresos{
+
     private String direccion;
 
     private String provincia;
 
-    private Date fechaAlta;
+    private Data fechaAlta;
 
     private double cuota;
+
+
+    public Socios(String DNI,String Nome,String direccion, String provincia,Data fechaAlta,double cuota){
+
+        super(DNI,Nome);
+        this.direccion= direccion;
+        this.provincia=provincia;
+        this.fechaAlta=fechaAlta;
+        this.cuota=cuota;
+
+    }
 
 
     public String getDireccion() {
@@ -37,14 +49,14 @@ public class Socios extends Asociacion implements gastosIngresos{
     }
 
 
-    public Date getFechaAlta() {
+    public Data getFechaAlta() {
 
         return fechaAlta;
 
     }
 
 
-    public void setFechaAlta(Date fechaAlta) {
+    public void setFechaAlta(Data fechaAlta) {
 
         this.fechaAlta = fechaAlta;
 
@@ -84,7 +96,10 @@ public class Socios extends Asociacion implements gastosIngresos{
 
     public String aCadea() {
 
-        return aCadea() + ", Dirección: " + direccion + ", Provincia: " + provincia + ", Cuota: " + cuota;
+        String aux = ", Dirección: " + direccion + ", Provincia: " + provincia + ", Cuota: " + cuota + "con data de alta "+ fechaAlta.toString();
+
+        return super.aCadea()+aux;
 
     }
+
 }

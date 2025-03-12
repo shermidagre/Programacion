@@ -1,8 +1,13 @@
-import java.util.Date;
-public abstract class Asociacion {
+
+public abstract class Asociacion implements gastosIngresos {
 
     String DNI;
     String Nome;
+
+    public Asociacion (String DNI,String Nome){
+        setDni(DNI);
+        this.Nome = Nome;
+    }
 
     public String getDNI() {
         return DNI;
@@ -28,6 +33,8 @@ public abstract class Asociacion {
         Nome = nome;
     }
 
-    public abstract String aCadea();
+    public String aCadea() {
+        return "DNI: " + getDNI() + ", Nombre: " + getNome() + ", Fecha de Ingreso: ";
+    }
 }
 

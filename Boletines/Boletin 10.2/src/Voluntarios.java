@@ -1,11 +1,21 @@
-public class Voluntarios extends Traballadores{
+import DataHora.Data;
+
+public class Voluntarios extends Traballadores implements gastosIngresos{
 
     private int edad;
 
     private String profesion;
 
-    private int horasTrabajo; // Horas dedicadas a la asociación
+    private double horasTrabajo; // Horas dedicadas a la asociación
 
+    public Voluntarios(String DNI, String Nome, Data fechaingreso, int edad, String profesion, double horasTrabajo){
+
+        super(DNI,Nome,fechaingreso);
+        setEdad(edad);
+        setProfesion(profesion);
+        setHorasTrabajo(horasTrabajo);
+
+    }
 
     public int getEdad() {
 
@@ -18,6 +28,10 @@ public class Voluntarios extends Traballadores{
 
         this.edad = edad;
 
+        if (edad<0 && edad>130){
+            edad=0;
+        }
+        throw new IllegalArgumentException("La edad no puede ser negativa ni mayor a 130");
     }
 
 
@@ -35,14 +49,14 @@ public class Voluntarios extends Traballadores{
     }
 
 
-    public int getHorasTrabajo() {
+    public double getHorasTrabajo() {
 
         return horasTrabajo;
 
     }
 
 
-    public void setHorasTrabajo(int horasTrabajo) {
+    public void setHorasTrabajo(double horasTrabajo) {
 
         this.horasTrabajo = horasTrabajo;
 
@@ -53,7 +67,14 @@ public class Voluntarios extends Traballadores{
 
     public String aCadea() {
 
-        return super.aCadea() + ", Edad: " + edad + ", Profesión: " + profesion + ", Horas de Trabajo: " + horasTrabajo;
+        String aux = ", Edad: " + edad + ", Profesión: " + profesion + ", Horas de Trabajo: " + horasTrabajo;
 
+        return super.aCadea() + aux;
+
+    }
+
+    @Override
+    public double calcularGastosIngresos() {
+        return -3;
     }
 }

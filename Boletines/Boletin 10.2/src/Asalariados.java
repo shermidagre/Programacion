@@ -1,3 +1,5 @@
+import DataHora.Data;
+
 public class Asalariados extends Traballadores implements gastosIngresos{
 
      double sueldo;
@@ -5,6 +7,18 @@ public class Asalariados extends Traballadores implements gastosIngresos{
      String cargo;
 
      double irpf; // Porcentaje de IRPF
+
+    double ss;
+
+
+    public Asalariados (String DNI, String Nome, Data fechaingreso, double sueldo, double irpf, String cargo){
+        super(DNI,Nome,fechaingreso);
+        setCargo(cargo);
+        setSueldo(sueldo);
+        setIrpf(irpf);
+
+
+    }
 
 
     public double getSueldo() {
@@ -17,6 +31,10 @@ public class Asalariados extends Traballadores implements gastosIngresos{
     public void setSueldo(double sueldo) {
 
         this.sueldo = sueldo;
+
+        if (sueldo<0){
+            sueldo=0;
+        }
 
     }
 
@@ -44,10 +62,17 @@ public class Asalariados extends Traballadores implements gastosIngresos{
 
     public void setIrpf(double irpf) {
 
-        this.irpf = irpf;
+        this.irpf = Math.abs(irpf);
 
     }
 
+    public double getSs() {
+        return ss;
+    }
+
+    public void setSs(double ss) {
+        this.ss = Math.abs(ss);
+    }
 
     @Override
 
@@ -62,7 +87,9 @@ public class Asalariados extends Traballadores implements gastosIngresos{
 
     public String aCadea() {
 
-        return super.aCadea() + ", Sueldo: " + sueldo + ", Cargo: " + cargo;
+        String aux= ", Sueldo: " + sueldo + ", Cargo: " + cargo;
+
+        return super.aCadea() + aux;
 
     }
 }

@@ -13,7 +13,7 @@
         }
 
         public void setNome(String nome) {
-            this.Nome = nome;
+            this.Nome = n;
         }
 
         public int getIdade() {
