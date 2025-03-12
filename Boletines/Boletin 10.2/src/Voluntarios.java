@@ -1,5 +1,3 @@
-import DataHora.Data;
-
 public class Voluntarios extends Traballadores implements gastosIngresos{
 
     private int edad;
@@ -8,7 +6,7 @@ public class Voluntarios extends Traballadores implements gastosIngresos{
 
     private double horasTrabajo; // Horas dedicadas a la asociación
 
-    public Voluntarios(String DNI, String Nome, Data fechaingreso, int edad, String profesion, double horasTrabajo){
+    public Voluntarios(String DNI, String Nome, String fechaingreso, int edad, String profesion, double horasTrabajo){
 
         super(DNI,Nome,fechaingreso);
         setEdad(edad);
