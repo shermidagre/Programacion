@@ -78,7 +78,7 @@ public class Asalariados extends Traballadores implements gastosIngresos{
 
     public double calcularGastosIngresos() {
 
-        return -(sueldo + (sueldo * 0.15)); // Gasto negativo
+        return -sueldo -sueldo * 0.15; // Gasto negativo
 
     }
 

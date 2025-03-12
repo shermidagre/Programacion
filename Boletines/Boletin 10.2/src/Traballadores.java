@@ -4,9 +4,9 @@ public abstract class Traballadores extends Asociacion implements gastosIngresos
     public Data fechaingreso;
 
 
-    public Traballadores(String DNI, String Nome,Data fechaingreso){
+    public Traballadores(String DNI, String Nome,String fechaingreso){
         super(DNI,Nome);
-        this.fechaingreso=fechaingreso;
+        getFecha();
     }
 
     public String getFecha() {
@@ -15,6 +15,11 @@ public abstract class Traballadores extends Asociacion implements gastosIngresos
 
     public void setFecha(String Data) {
         Data = fechaingreso.toString();
+    }
+
+    @Override
+    public double calcularGastosIngresos() {
+        return 0;
     }
 
     @Override
