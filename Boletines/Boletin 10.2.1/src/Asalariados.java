@@ -1,6 +1,6 @@
 import DataHora.Data;
 
-public class Asalariados extends Traballadores implements gastosIngresos{
+public class Asalariados extends Traballadores{
 
      double sueldo;
 
@@ -94,4 +94,10 @@ public class Asalariados extends Traballadores implements gastosIngresos{
 
     }
 
+    @Override
+    public void gastosingresosmetodo() {
+
+        super.gastosingresosmetodo();
+
+    }
 }

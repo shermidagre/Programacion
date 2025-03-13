@@ -1,4 +1,4 @@
-public class Voluntarios extends Traballadores implements gastosIngresos{
+public class Voluntarios extends Traballadores{
 
     private int edad;
 
@@ -72,8 +72,10 @@ public class Voluntarios extends Traballadores implements gastosIngresos{
     }
 
     @Override
-    public double calcularGastosIngresos() {
-        return -3;
-    }
+    public void gastosingresosmetodo() {
 
+        super.gastosingresosmetodo();
+        System.out.println("El gasto de los voluntarios es de: " + horasTrabajo*10);
+
+    }
 }

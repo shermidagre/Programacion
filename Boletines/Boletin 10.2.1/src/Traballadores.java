@@ -1,5 +1,5 @@
 import DataHora.Data;
-public abstract class Traballadores extends Asociacion implements gastosIngresos{
+public abstract class Traballadores extends Asociacion{
 
     public Data fechaingreso;
 
@@ -13,13 +13,9 @@ public abstract class Traballadores extends Asociacion implements gastosIngresos
         return fechaingreso.toString();
     }
 
+
     public void setFecha(String Data) {
         Data = fechaingreso.toString();
-    }
-
-    @Override
-    public double calcularGastosIngresos() {
-        return 0;
     }
 
     @Override
@@ -30,4 +26,8 @@ public abstract class Traballadores extends Asociacion implements gastosIngresos
 
     }
 
+    @Override
+    public void gastosingresosmetodo() {
+
+    }
 }

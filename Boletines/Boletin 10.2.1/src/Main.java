@@ -6,18 +6,10 @@ public class Main {
 
         Voluntarios Anita = new Voluntarios("ajkdadja", "Anita", "01/11/2798",18,"Actor",6);
 
-        Socios Sandre = new Socios("adaji3","KANKRO","AOKDSA","APOKMDOA", "01/10/1344", 19);
+        Socios Sandre = new Socios("adaji3","KANKRO","AOKDSA","APOKMDOA", "01/10/2212", 19);
 
-        gastosIngresos asocAntiDrogas [] = new gastosIngresos [];
-
-        asocAntiDrogas[0]= pepita;
 
         double total = 0.0;
-
-        for(gastosIngresos membro:asocAntiDrogas){
-            total = total + membro.calcularGastosIngresos();
-        }
-        System.out.println("Saldo asociacion"+ total);
 
         Traballadores trab1;
         trab1 = Juan;

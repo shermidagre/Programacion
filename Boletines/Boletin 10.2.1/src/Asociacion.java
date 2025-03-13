@@ -1,5 +1,5 @@
 
-public abstract class Asociacion implements gastosIngresos {
+public abstract class Asociacion  {
 
     String DNI;
     String Nome;
@@ -36,6 +36,11 @@ public abstract class Asociacion implements gastosIngresos {
     public String aCadea() {
         return "DNI: " + getDNI() + ", Nombre: " + getNome() + ", Fecha de Ingreso: ";
     }
+
+
+
+    public abstract void gastosingresosmetodo();
+
 
 }
 

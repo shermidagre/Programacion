@@ -1,5 +1,5 @@
 import DataHora.Data;
-public class Socios extends Asociacion implements gastosIngresos{
+public class Socios extends Asociacion {
 
     private String direccion;
 
@@ -85,15 +85,6 @@ public class Socios extends Asociacion implements gastosIngresos{
 
     @Override
 
-    public double calcularGastosIngresos() {
-
-        return cuota; // Ingreso positivo
-
-    }
-
-
-    @Override
-
     public String aCadea() {
 
         String aux = ", Dirección: " + direccion + ", Provincia: " + provincia + ", Cuota: " + cuota + "con data de alta "+ fechaAlta.toString();
@@ -102,4 +93,9 @@ public class Socios extends Asociacion implements gastosIngresos{
 
     }
 
+    @Override
+    public void gastosingresosmetodo() {
+
+    }
+    
 }
