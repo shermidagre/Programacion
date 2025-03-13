@@ -147,6 +147,7 @@ public class Data {
     public  void incrementaraño(){
         contadoraño++;
     }
+
     public  void mostrardata(int dia, int mes,int año){
         System.out.println("El calendario esta inicializado a dia "+dia+ " del "+mes+ " del "+año);
     }
@@ -156,4 +157,51 @@ public class Data {
         return this.dia == diaComparar && this.mes == mesComparar && this.año == añoComparar;
 
     }
+
+    public void comprobarformato (int dia, int mes, int año, String cadea) {
+
+        this.dia = dia;
+        this.mes = mes;
+        this.año = año;
+
+        if (cadea.length() != 10) {
+            String cadeaa = new cadeaa();
+            for (int i = 0; i < cadea.length(); i++) {
+                cadeaa = String.valueOf(cadea.charAt(i));
+            }
+
+            if (cadeaa[2] & cadeaa[5] = "-") {
+
+                cadea = String.format("A data é %02d-%02d-%02d", dia, mes, año);
+                System.out.println(cadea);
+
+            } else {
+
+                cadea = String.format("A data é %02d/%02d/%02d", dia, mes, año);
+                System.out.println(cadea);
+            }
+        }
+        else {
+
+            System.out.println("Formato inválido");
+        }
+    }
+
+    public String toString() {
+
+        String cadeadata;
+        String cadeadata1;
+        String cadeadata2;
+
+            cadeadata1 = String.format("A data é %02d-%02d-%02d", dia, mes, año);
+
+            cadeadata = String.format("A data é %02d/%02d/%02d", dia, mes, año);
+
+            cadeadata2 = String.format("A data é %02d,%02d,%02d", dia, mes, año);
+
+
+        return cadeadata + " tiene distinto formato a " + cadeadata1 + " tiene distinto formato a " + cadeadata2;
+
+    }
+
 }

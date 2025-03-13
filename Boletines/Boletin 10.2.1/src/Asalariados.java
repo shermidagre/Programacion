@@ -74,15 +74,6 @@ public class Asalariados extends Traballadores{
         this.ss = Math.abs(ss);
     }
 
-    @Override
-
-    public double calcularGastosIngresos() {
-
-        return -sueldo -sueldo * 0.15; // Gasto negativo
-
-    }
-
-
 
     @Override
 
@@ -95,9 +86,9 @@ public class Asalariados extends Traballadores{
     }
 
     @Override
-    public void gastosingresosmetodo() {
+    public double gastosingresosmetodo() {
 
         super.gastosingresosmetodo();
-
+        return -sueldo -sueldo * 0.15;
     }
 }

@@ -72,10 +72,10 @@ public class Voluntarios extends Traballadores{
     }
 
     @Override
-    public void gastosingresosmetodo() {
+    public double gastosingresosmetodo() {
 
         super.gastosingresosmetodo();
-        System.out.println("El gasto de los voluntarios es de: " + horasTrabajo*10);
-
+        System.out.println("El gasto de los voluntarios es de: -3 euros");
+        return -3;
     }
 }

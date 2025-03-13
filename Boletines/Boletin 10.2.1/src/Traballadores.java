@@ -27,7 +27,7 @@ public abstract class Traballadores extends Asociacion{
     }
 
     @Override
-    public void gastosingresosmetodo() {
-
+    public double gastosingresosmetodo() {
+        return 0;
     }
 }

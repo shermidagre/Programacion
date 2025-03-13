@@ -10,13 +10,13 @@ public class Socios extends Asociacion {
     private double cuota;
 
 
-    public Socios(String DNI, String Nome, String direccion, String provincia, Data fechaAlta, double cuota){
+    public Socios(String DNI, String Nome, String direccion, String provincia, Data fechaAlta, double cuota) {
 
-        super(DNI,Nome);
-        this.direccion= direccion;
-        this.provincia=provincia;
-        this.fechaAlta=fechaAlta;
-        this.cuota=cuota;
+        super(DNI, Nome);
+        this.direccion = direccion;
+        this.provincia = provincia;
+        this.fechaAlta = fechaAlta;
+        this.cuota = cuota;
 
     }
 
@@ -87,15 +87,15 @@ public class Socios extends Asociacion {
 
     public String aCadea() {
 
-        String aux = ", Dirección: " + direccion + ", Provincia: " + provincia + ", Cuota: " + cuota + "con data de alta "+ fechaAlta.toString();
+        String aux = ", Dirección: " + direccion + ", Provincia: " + provincia + ", Cuota: " + cuota + "con data de alta " + fechaAlta.toString();
 
-        return super.aCadea()+aux;
+        return super.aCadea() + aux;
 
     }
 
     @Override
-    public void gastosingresosmetodo() {
-
+    public double gastosingresosmetodo() {
+        return cuota;
     }
     
 }

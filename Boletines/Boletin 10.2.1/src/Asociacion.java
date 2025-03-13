@@ -39,7 +39,7 @@ public abstract class Asociacion  {
 
 
 
-    public abstract void gastosingresosmetodo();
+    public abstract double gastosingresosmetodo();
 
 
 }
