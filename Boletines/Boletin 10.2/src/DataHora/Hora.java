@@ -1,6 +1,6 @@
 package DataHora;
 
-class Hora {
+public class Hora {
 
 
     enum FormatoHora { DOCE, VINTECATRO }
