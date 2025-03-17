@@ -129,45 +129,82 @@ public class Lista2 {
      */
 
     public void obterPrimeiro() {
-
         if (estaValeira() == false) {
             System.out.println("A lista non está valeira");
             return;
         }
         System.out.println("Valor do primeiro nodo: " + nodoInicial.getValor());
-
     }
-
+    /**
+     * Elimina el primer nodo
+     *
     /**
      * Elimina un nodo específico
      */
 
-    public void eliminar(int nValor) {
+    public void eliminarNodo(int nValor) {
+        if (estaValeira() == false) {
+            System.out.println("A lista non está valeira");
+            return;
+        }
+        if (nodoInicial.getValor() == nValor) {
+            nodoInicial = nodoInicial.getNodoSeguinte();
+            tamaño--;
+            return;
+        }
+        Node nodoActual = nodoInicial;
+        while (nodoActual.getNodoSeguinte()!= null && nodoActual.getNodoSeguinte().getValor()!= nValor) {
+            nodoActual = nodoActual.getNodoSeguinte();
+        }
+        if (nodoActual.getNodoSeguinte()!= null) {
+            nodoActual.setNodoSeguinte(nodoActual.getNodoSeguinte().getNodoSeguinte());
+            tamaño--;
+        }
+    }
+
+    public void eliminarprimeiro() {
 
         if (estaValeira() == false) {
-
             System.out.println("A lista non está valeira");
-
-            if (nodoInicial.getValor() == nValor) { // llamamos a nodoInicial para asi conseguir l valor, en caso de que si que exista el valor se eliminiara el nodo siguiente y asi progresivamente
-
-                for (nodoInicial = nodoInicial.getNodoSeguinte();;) {
-                    Node nodoActual = null; // inicializamos un nodo nuevo a lleno
-                    if (nodoActual.getNodoSeguinte().getNodoSeguinte() == null) {
-                        break;
-                    }
-                    nodoActual.setNodoSeguinte(nodoActual.getNodoSeguinte().getNodoSeguinte());
-                    tamaño--; // vamos restando el tamaño hasta q no queden nodos mi negro
-                    return;
-                }
-                //Caso general: nodo inicial a eliminar no es el único
-                Node nodoActual = nodoInicial;
-                while (nodoActual.getNodoSeguinte() != null && nodoActual.getNodoSeguinte().getValor() != nValor) {
-                    nodoActual = nodoActual.getNodoSeguinte();
-                }
-            } else {
-                System.out.println("o nodo esta valeiro");
-            }
+            nodoInicial = nodoInicial.getNodoSeguinte();
+            tamaño --;
+            System.out.println("O nodo inicial pasa a ser :" + nodoInicial);
         }
+        else
+            System.out.println(" A lista esta valeira ");
 
     }//end class
+
+    public void eliminarultimo(int nValor) {
+
+        if (!estaValeira()) {
+            Node nodoAnterior = null;
+            if (tamaño != 1) {
+                Node nodoActual = nodoInicial;
+
+                while (nodoActual.getNodoSeguinte().equals(nodoActual)) {
+                    nodoAnterior = nodoActual;
+                    nodoActual = nodoActual.getNodoSeguinte();
+                }
+                nodoAnterior.setNodoSeguinte(null);
+            }
+        }
+        else{
+                nodoInicial=null;
+        }
+        tamaño --;
+    }//end class
+    public void mostrarvalores(){
+        if (!estaValeira()){
+            if(tamaño !=1){
+                Node nodoActual = nodoInicial;
+                while (nodoActual.getNodoSeguinte()!= nodoActual){
+                    System.out.println(nodoActual.getValor());
+                   nodoActual = nodoActual.getNodoSeguinte();
+                }
+                System.out.println(nodoInicial.getValor());
+                System.out.println(nodoActual.getValor());
+            }
+        }
+    }
 }//end Lista2
