@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0afab44-4a42-4a0d-a475-8f4c29544be6" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/Cubo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Practicaclases/src/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Practicaclases/src/Armadillo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Practicaclases/src/Canguro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Practicaclases/src/Delfin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Practicaclases/src/Mamiferos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poo_juegoguerra.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Poo_juegoguerra.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Programas random/Calendario/Test/Horatest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Programas random/Calendario/Test/Horatest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boletines/Boletin 10.2/src/DataHora/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Boletines/Boletin 10.2/src/DataHora/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boletines/Boletin 10.2/src/Socios.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Boletines/Boletin 10.2/src/Socios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lista2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lista2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PuntoAbstracto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PuntoAbstracto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,18 +31,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "shermidagre"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;shermidagre&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/shermidagre/Programacion.git",
-    "accountId": "74038978-e88c-4b98-b465-ffc5e21791e8"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/shermidagre/Programacion.git&quot;,
+    &quot;accountId&quot;: &quot;74038978-e88c-4b98-b465-ffc5e21791e8&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -61,7 +57,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/dam/Documentos/Prog/Practicaclases"
+    "last_opened_file_path": "/home/dam/Documentos/Prog/Poo_juegoguerra"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

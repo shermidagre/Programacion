@@ -10,7 +10,7 @@ public class Socios extends Asociacion implements gastosIngresos{
     private double cuota;
 
 
-    public Socios(String DNI, String Nome, String direccion, String provincia, Data fechaAlta, double cuota){
+    public Socios(String DNI, String Nome, String direccion, String provincia, String fechaAlta, double cuota){
 
         super(DNI,Nome);
         this.direccion= direccion;

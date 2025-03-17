@@ -16,13 +16,13 @@ public class Node {
         this.valor = valor;
     }
 
-    public Node  getnodoSeguinte(){
-        return nodoSeguinte;
-    }
     public void setNodoSeguinte(Node nodoSeguinte){
         this.nodoSeguinte = nodoSeguinte;
     }
 
+    public Node  getNodoSeguinte(){
+        return nodoSeguinte;
+    }
 
 
 }//end class

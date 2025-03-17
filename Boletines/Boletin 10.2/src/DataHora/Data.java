@@ -158,33 +158,49 @@ public class Data {
 
     }
 
-    public void comprobarformato (int dia, int mes, int año, String cadea) {
+    public void comprobarformato(int dia, int mes, int año, String cadea) {
 
         this.dia = dia;
+
         this.mes = mes;
+
         this.año = año;
 
-        if (cadea.length() != 10) {
-            String cadeaa = new cadeaa();
-            for (int i = 0; i < cadea.length(); i++) {
-                cadeaa = String.valueOf(cadea.charAt(i));
-            }
 
-            if (cadeaa[2] & cadeaa[5] = "-") {
+        // Check if the input string has the correct length
 
-                cadea = String.format("A data é %02d-%02d-%02d", dia, mes, año);
+        if (cadea.length() == 10) {
+
+            // Check if the format is "dd-mm-yyyy" or "dd/mm/yyyy"
+
+            if (cadea.charAt(2) == '-' && cadea.charAt(5) == '-') {
+
+                // Format is "dd-mm-yyyy"
+
+                cadea = String.format("A data é %02d-%02d-%04d", dia, mes, año);
+
+                System.out.println(cadea);
+
+            } else if (cadea.charAt(2) == '/' && cadea.charAt(5) == '/') {
+
+                // Format is "dd/mm/yyyy"
+
+                cadea = String.format("A data é %02d/%02d/%04d", dia, mes, año);
+
                 System.out.println(cadea);
 
             } else {
 
-                cadea = String.format("A data é %02d/%02d/%02d", dia, mes, año);
-                System.out.println(cadea);
+                System.out.println("Formato inválido");
+
             }
-        }
-        else {
+
+        } else {
 
             System.out.println("Formato inválido");
+
         }
+
     }
 
     public String toString() {

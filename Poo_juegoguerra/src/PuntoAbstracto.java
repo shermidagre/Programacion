@@ -59,8 +59,8 @@ public abstract class PuntoAbstracto {
         }
 
     }
-    public abstract aCadea(){
-
+    public int aCadea(){
+return 0;
     }
 
 }
