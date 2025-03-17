@@ -74,13 +74,16 @@ public class Lista2 {
      */
     public void engadirPrimeiron(int nValor) {
 
-        Node novoNode = new Node(nValor, nodoInicial); //añadimos un nuevo valor al nodo
+        Node novoNode = new Node(nValor, this.nodoInicial); //añadimos un nuevo valor al nodo
         if(estaValeira()==true){ //entonces como la lista está vacía el nodo inicial será el nuevo nodo e aumentará el tamaño de null a 1
             nodoInicial = novoNode;
             tamaño++;
         }
         else{
             nodoInicial = novoNode;
+            for (int i = 0; i < nValor; i++){
+                novoNode = novoNode.getNodoSeguinte();
+            }
         }//end engadirPrimeiro
     }
 
