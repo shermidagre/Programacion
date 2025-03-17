@@ -1,16 +1,15 @@
-import DataHora.Data;
 public class Socios extends Asociacion {
 
     private String direccion;
 
     private String provincia;
 
-    private Data fechaAlta;
+    private String fechaAlta;
 
     private double cuota;
 
 
-    public Socios(String DNI, String Nome, String direccion, String provincia, Data fechaAlta, double cuota) {
+    public Socios(String DNI, String Nome, String direccion, String provincia, String fechaAlta, double cuota) {
 
         super(DNI, Nome);
         this.direccion = direccion;
@@ -49,14 +48,14 @@ public class Socios extends Asociacion {
     }
 
 
-    public Data getFechaAlta() {
+    public String getFechaAlta() {
 
         return fechaAlta;
 
     }
 
 
-    public void setFechaAlta(Data fechaAlta) {
+    public void setFechaAlta(String fechaAlta) {
 
         this.fechaAlta = fechaAlta;
 

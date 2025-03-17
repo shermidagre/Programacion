@@ -21,5 +21,11 @@ public class Main {
         System.out.println(can.parir());
         System.out.println(can.ronroneo());
 
+        Son sonido = new Son(){
+            public void voz() {
+                System.out.println("Oueiuie");
+            }
+        };
+
     }
 }
