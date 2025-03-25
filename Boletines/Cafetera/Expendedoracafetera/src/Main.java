@@ -1,84 +1,184 @@
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
+
+    private static final float PRECIO_CAFE = 0.50f; // Precio en euros
+
+    private static final float PRECIO_CHOCOLATE = 0.60f;
+
+    private static final float PRECIO_TE = 0.30f;
+
+    private static int azucar = 0; // Azúcar inicial
+
+
     public static void main(String[] args) {
 
-        System.out.println("Bienvenido al cafeteria!)";
-        System.out.println("Estos son los precios de nuestros productos");
+        System.out.println("Bienvenido a la cafetería!");
+
+        System.out.println("Estos son los precios de nuestros productos:");
+
         precios();
-        System.out.println("Introduce el dinero ");
-dinero();
-       seleccionproducto();
-       procesoazucar();
-       colocacionvaso();
 
-    }
-static void dinero() {
-        Scanner sc = new Scanner(System.in);
-        int dinero = sc.nextInt();
-        if (dinero >= 60) {
-            System.out.println("Disfruta tu café!");
+
+
+        float dinero = solicitarDinero();
+
+        if (dinero < PRECIO_CAFE) {
+
+            System.out.println("No tienes suficiente dinero para comprar un producto.");
+
+            return;
+
         }
-}
-    static void vuelta() {
 
 
-        float vueltate = dinero() - 30F;
-        System.out.println("La vuelta es de: " + vueltate + " euros");
-        float vueltachocolate = dinero() -60f;
-        float vueltacafe = dinero() - 50f;
-    }
-static  void menosazucar(){
-       int azucar = 5;
-        int decrementar--
-}
-    static void masazucar() {
-        int azucar =5;
-            int incrementar++
-    }
-static void nadaazucar() {
-       int  azucar =0 ;
-}
-    static void procesoazcucar() {
+        int productoSeleccionado = seleccionarProducto();
 
-        System.out.println("Si quieres menos azucar pulsa (3) si quieres mas azucar pulsa (2) si no quieres azucar pulsa (1)");
-        Scanner sc = new Scanner(System.in);
-        int result = sc.nextInt();
-        if (result==3)
-            menosazucar();
+        if (productoSeleccionado == -1) {
 
-        if (result == 2) {
-            masazucar();
+            System.out.println("Selección de producto inválida.");
+
+            return;
+
         }
-        if (result == 1) {
-            nadaazucar();
+
+
+        procesoAzucar();
+
+        float cambio = calcularCambio(dinero, productoSeleccionado);
+
+        if (cambio >= 0) {
+
+            System.out.println("Disfruta tu bebida!");
+
+            System.out.printf("La vuelta es de: %.2f euros%n", cambio);
+
+        } else {
+
+            System.out.println("No tienes suficiente dinero para este producto.");
+
         }
+
+
+        colocacionVaso();
+
     }
-    static  void seleccionproducto() {
+
+
+    static float solicitarDinero() {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Selecciona el producto cafe(1) chocolate(2) te(3)");
-        int result = sc.nextInt();
+        System.out.print("Introduce el dinero: ");
 
-        if (result == 1)
-            procesoazcucar();
-            vuelta();
-        if (result == 2)
-            procesoazcucar();
-            vuelta();
-        if (result == 3)
-            procesoazcucar();
-            vuelta();
-    }
-    static void colocacionvaso() {
+        return sc.nextFloat();
 
     }
+
+
     static void precios() {
-        System.out.println("Precio cafe: 50 centimos");
-        System.out.println("Precio chocolate: 60 centimos");
-        System.out.println("Precio te: 30 centimos");
-    }
-}
 
+        System.out.println("Precio café: 0.50 euros");
+
+        System.out.println("Precio chocolate: 0.60 euros");
+
+        System.out.println("Precio té: 0.30 euros");
+
+    }
+
+
+    static int seleccionarProducto() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Selecciona el producto: café(1), chocolate(2), té(3)");
+
+        int result = sc.nextInt();
+
+        return (result >= 1 && result <= 3) ? result : -1; // Retorna -1 si la selección es inválida
+
+    }
+
+
+    static int procesoAzucar() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Si quieres menos azúcar pulsa (3), si quieres más azúcar pulsa (2), si no quieres azúcar pulsa (1)");
+
+        int result = sc.nextInt();
+
+        switch (result) {
+
+            case 1:
+
+                azucar = 0;
+
+                break;
+
+            case 2:
+
+                azucar += 1; // Incrementar azúcar
+
+                break;
+
+            case 3:
+
+                azucar = Math.max(0, azucar - 1); // Decrementar azúcar, asegurando que no sea negativo
+
+                break;
+
+            default:
+
+                System.out.println("Opción no válida, no se modificará el azúcar.");
+
+        }
+
+        return azucar; // Devolver el nivel de azúcar
+
+    }
+
+
+    static float calcularCambio(float dinero, int producto) {
+
+        float precioProducto = 0;
+
+        switch (producto) {
+
+            case 1:
+
+                precioProducto = PRECIO_CAFE;
+
+                break;
+
+            case 2:
+
+                precioProducto = PRECIO_CHOCOLATE;
+
+                break;
+
+            case 3:
+
+                precioProducto = PRECIO_TE;
+
+                break;
+
+        }
+
+        return dinero - precioProducto; // Retorna el cambio
+
+    }
+
+
+    static void colocacionVaso() {
+
+        // Implementa la lógica para la colocación del vaso aquí
+
+        System.out.println("Colocando el vaso...");
+
+    }
+
+
+
+}
