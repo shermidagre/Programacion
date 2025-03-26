@@ -1,5 +1,5 @@
-public class Pila extends Lista2 implements Cola{
-    public Pila (Node NodoInicial) {
+public class ImplementacionCola extends Lista2 implements Cola{
+    public ImplementacionCola (Node NodoInicial) {
         super(NodoInicial);
     }
     @Override
@@ -12,8 +12,13 @@ public class Pila extends Lista2 implements Cola{
     @Override
     public int desencolar(int novo) {
 
-        return 0;
+        int valor =  getNode(0);
+        eliminarprimeiro();
+        return novo;
+
     }
+
+
 
 
 }

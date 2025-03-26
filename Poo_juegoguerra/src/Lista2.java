@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
+
 public class Lista2 {
-    private Node nodoInicial;
+    Node nodoInicial;
     private int tamaño;
 
     /*
@@ -108,13 +111,14 @@ public class Lista2 {
 
     /**
      * Obtiene el valor del último nodo
+     *
+     * @return
      */
 
-    public void obterUltimo() {
+    public boolean obterUltimo() {
 
         if (estaValeira() == false) {
             System.out.println("A lista non está valeira");
-            return;
         }
         Node nodoActual = nodoInicial;
         while (nodoActual.getNodoSeguinte() != null) {
@@ -122,6 +126,7 @@ public class Lista2 {
         }
         System.out.println("Valor do último nodo: " + nodoActual.getValor());
 
+        return true;
     }
 
     /**
@@ -135,9 +140,6 @@ public class Lista2 {
         }
         System.out.println("Valor do primeiro nodo: " + nodoInicial.getValor());
     }
-    /**
-     * Elimina el primer nodo
-     *
     /**
      * Elimina un nodo específico
      */
@@ -175,14 +177,14 @@ public class Lista2 {
 
     }//end class
 
-    public void eliminarultimo(int nValor) {
+    public void eliminarultimo() {
 
         if (!estaValeira()) {
             Node nodoAnterior = null;
             if (tamaño != 1) {
                 Node nodoActual = nodoInicial;
 
-                while (nodoActual.getNodoSeguinte().equals(nodoActual)) {
+                while (nodoActual.getNodoSeguinte() !=null ){
                     nodoAnterior = nodoActual;
                     nodoActual = nodoActual.getNodoSeguinte();
                 }
@@ -205,6 +207,59 @@ public class Lista2 {
                 System.out.println(nodoInicial.getValor());
                 System.out.println(nodoActual.getValor());
             }
+        }
+    }
+    public void obternelemento(){
+        Scanner teclado = new Scanner(System.in);
+        if (!estaValeira()){
+            if(tamaño !=1){
+                Node nodoActual = nodoInicial;
+                while (nodoActual.getNodoSeguinte() != nodoActual ) {
+
+                    System.out.println("Los valores de este nodo son : " + nodoActual.getValor());
+
+                }
+
+                System.out.println("Deseas cambiar algun valor si es si pulsa 1 si es no pulsa 0?");
+
+                int numero = teclado.nextInt();
+
+                switch (numero){
+                    case 1:
+                        System.out.println("Introduce el nuevo valor para este nodo");
+                        int nuevoValor = teclado.nextInt();
+                        System.out.println("En que posicion lo quieres implementar? La lista de nodos empieza desde la posicion 0");
+
+                        nodoActual.setValor(nuevoValor);
+                        break;
+                    case 0:
+                        System.out.println("No has cambiado el valor");
+                        break;
+                    default:
+                        System.out.println("Introduce un numero correcto");
+                }
+                teclado.close();
+            }
+
+            else{
+                System.out.println("La lista esta vacia");
+            }
+        }
+    }
+    public int getNode (int indice){
+        if ( indice > tamaño){
+            System.out.println("indice no valido voltamos -1");
+            return -1;
+        }
+        else {
+            Node nodoActual = nodoInicial;
+            for (int i = 0; i>indice; i++){
+
+                nodoInicial = nodoInicial.getNodoSeguinte();
+                System.out.println("El valor del nodo en la posicion " + indice + " es : " + nodoActual.getValor());
+
+            }
+            return nodoActual.getValor();
         }
     }
 }//end Lista2

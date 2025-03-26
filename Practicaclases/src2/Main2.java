@@ -1,7 +1,5 @@
-public class Main2 {
-}
-/*
-1. Interfaz IVehiculo
+
+Interfaz IVehiculo
 
 Define los métodos que deben implementar todos los vehículos.
 
@@ -15,7 +13,7 @@ interface IVehiculo {
 
 }
 
-2. Clase Abstracta Vehiculo
+Clase Abstracta Vehiculo
 
 Contiene propiedades comunes y un método de validación.
 
@@ -65,7 +63,7 @@ abstract class Vehiculo implements IVehiculo {
 
 }
 
-3. Clase Furgoneta
+ Clase Furgoneta
 
 Hereda de Vehiculo y añade propiedades específicas.
 
@@ -99,7 +97,7 @@ class Furgoneta extends Vehiculo {
 
 }
 
-4. Clase Camion
+Clase Camion
 
 También hereda de Vehiculo y tiene sus propias propiedades.
 
@@ -133,7 +131,7 @@ class Camion extends Vehiculo {
 
 }
 
-5. Clase Trailer
+ Clase Trailer
 
 Hereda de Camion y añade propiedades específicas para el remolque.
 
@@ -155,8 +153,7 @@ class Trailer extends Camion {
     }
 
 }
-
-6. Clase Main
+ Clase Main
 
 Clase Main
 
