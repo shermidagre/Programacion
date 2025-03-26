@@ -1,4 +1,3 @@
-import javax.imageio.ImageTranscoder;
 import java.util.Scanner;
 public class Vehiculos implements PrezuUso{
 
@@ -21,21 +20,64 @@ public class Vehiculos implements PrezuUso{
 
     }
 
+    // Getters y setters
+
+
+    public int getAutonomia() {
+        return autonomia;
+    }
+
+    public void setAutonomia(int autonomia) {
+        this.autonomia = autonomia;
+    }
+
+    public int getVelocidademaxima() {
+        return velocidademaxima;
+    }
+
+    public void setVelocidademaxima(int velocidademaxima) {
+        this.velocidademaxima = velocidademaxima;
+    }
+
+    public double getConsumo() {
+        return consumo;
+    }
+
+    public void setConsumo(double consumo) {
+        this.consumo = consumo;
+    }
+
+    public String getTecnoloxiademovilizacion() {
+        return tecnoloxiademovilizacion;
+    }
+
+    public void setTecnoloxiademovilizacion(String tecnoloxiademovilizacion) {
+        this.tecnoloxiademovilizacion = tecnoloxiademovilizacion;
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public int getNumeroautorizacion() {
+        return numeroautorizacion;
+    }
+
+    public void setNumeroautorizacion(int numeroautorizacion) {
+        this.numeroautorizacion = numeroautorizacion;
+    }
+
+    // Metodos a implementar
     @Override
     public void prezoUso( int horas, int combustible, int enerxia, int combustion, double cantidadamas) {
-
+         double total =consumo/horas * enerxia/combustible * cantidadamas;
     }
-
-    public static void teñennumero() {
-        // Esta matricula debera de ter un formato tttNNNaaaa
-
-        // ttt se referira a el  tipo asi como para electrico ou gasolina
-
-        // NNN se referira a depende si es terres o aereo, si es 1 sera terrestre si es mas sera aereo
-
-        // aaaa sera para el ano de matriculacion de entre 1965 a 2025 java.util.Date ten o metodo getYear
-    }
-
+    
+    
      void teñentipo() {
 
         Scanner entradaTeclado = new Scanner(System.in);
@@ -57,16 +99,9 @@ public class Vehiculos implements PrezuUso{
     void calculoCusteViaxe(double enerxiacombustible, double horasdistancia) {
 
     }
-    public boolean verificarnumero(String numero) {
-
-        String regex = "^(pt)\\d{3}[a-zA-Z]{4}[a-zA-Z]$";
-
-        return numero.matches(regex);
-    }
         public String aCadea(){
         return "Estas son as suas caracteristicas";
     }
-
 
 }
 

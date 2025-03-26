@@ -1,20 +1,12 @@
-import java.util.Scanner;
-
 public class Vehiculosterrestres extends Vehiculos implements Transportemercancias{
-
-    int capacidade;
 
 
     // Super
-    public Vehiculosterrestres(int autonomia, int velocidademaxima, double consumo, String tecnoloxiademovilizacion, int matricula, int numeroautorizacion, int capacidade) {
+    public Vehiculosterrestres(int autonomia, int velocidademaxima, double consumo, String tecnoloxiademovilizacion, int matricula, int numeroautorizacion, double capacidade) {
         super(autonomia, velocidademaxima, consumo, tecnoloxiademovilizacion, matricula, numeroautorizacion);
 
-        this.capacidade = capacidade;
     }
 
-    void calcularcapacidade(int num){
-
-    }
 
     @Override
     void calculoCusteViaxe(double enerxiacombustible, double horasdistancia) {
@@ -28,7 +20,7 @@ public class Vehiculosterrestres extends Vehiculos implements Transportemercanci
 
     @Override
     public String aCadea() {
-        return super.aCadea()+ "";
+        return super.aCadea()+ "Estes son os vehiculos terrestres";
     }
 
     @Override

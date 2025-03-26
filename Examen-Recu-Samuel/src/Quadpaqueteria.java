@@ -6,9 +6,7 @@ public class Quadpaqueteria extends Vehiculosterrestres{
         super(autonomia, velocidademaxima, consumo, tecnoloxiademovilizacion, matricula, numeroautorizacion, capacidad);
         this.paquete = paquete;
     }
-    public static  void cuantospaquetesson(){
 
-    }
     @Override
     public void prezoUso(int horas, int combustible, int enerxia, int combustion, double cantidadamas) {
         super.prezoUso(horas, combustible, enerxia, combustion, cantidadamas);
@@ -22,7 +20,7 @@ public class Quadpaqueteria extends Vehiculosterrestres{
 
     @Override
     public String aCadea() {
-        return super.aCadea();
+        return super.aCadea()+ "Esta repartiendo los siguientes paquete/s" + paquete;
     }
 
 }

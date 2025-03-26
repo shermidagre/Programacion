@@ -1,6 +1,21 @@
 public class Dronsaerotaxis extends Vehiculosaereos{
-    public Dronsaerotaxis(int autonomia, int velocidademaxima, double consumo, String tecnoloxiademovilizacion, int matricula, int numeroautorizacion) {
-        super(autonomia, velocidademaxima, consumo, tecnoloxiademovilizacion, matricula, numeroautorizacion);
+    double volumenmaleteiro;
+    int viaxeiros;
+
+    public Dronsaerotaxis(int autonomia, int velocidademaxima, double consumo, String tecnoloxiademovilizacion, int matricula, int numeroautorizacion, int viaxeiros, double volumenmaleteiro, double bandadealtura, double voo) {
+        super(autonomia, velocidademaxima, consumo, tecnoloxiademovilizacion, matricula, numeroautorizacion, bandadealtura, voo);
+        this.viaxeiros = viaxeiros;
+        this.volumenmaleteiro = volumenmaleteiro;
+    }
+
+    @Override
+    void calculoCusteViaxe(double enerxiacombustible, double horasdistancia) {
+        super.calculoCusteViaxe(enerxiacombustible, horasdistancia);
+    }
+
+    @Override
+    void teñentipo() {
+        super.teñentipo();
     }
 
     @Override
@@ -14,5 +29,10 @@ public class Dronsaerotaxis extends Vehiculosaereos{
     @Override
     public String introducirDireccionDestino() {
         return super.introducirDireccionDestino()+"A direccion de destino dos drons taxis e: ";
+    }
+
+    @Override
+    public String aCadea() {
+        return super.aCadea()+" estan levando a "+viaxeiros+ " e o volumen do maleteiro e" + volumenmaleteiro;
     }
 }
