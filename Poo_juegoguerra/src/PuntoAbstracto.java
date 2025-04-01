@@ -8,11 +8,11 @@ public abstract class PuntoAbstracto {
 
     // Constructor por defecto
 
-    public PuntoAbstracto() {
+    public PuntoAbstracto(double x, double y) throws ExcepcionPuntoForaDoPrimeiroCadrante{
 
-        x = 0;
+        setX(x);
 
-        y = 0;
+        setY(y);
 
     }
 
@@ -25,15 +25,15 @@ public abstract class PuntoAbstracto {
     }
 
 
-    public void setX(double x) {
+    public void setX(double x) throws ExcepcionPuntoForaDoPrimeiroCadrante {
 
-        if (x >= 0) {
+        if (x >= 0.0) {
 
             this.x = x; // Asignar a la variable de instancia
 
         } else {
 
-            this.x = 0; // Asignar 0 a la variable de instancia
+            throw new ExcepcionPuntoForaDoPrimeiroCadrante();
 
         }
 
@@ -46,7 +46,7 @@ public abstract class PuntoAbstracto {
 
     }
 
-    public void setY(double y) {
+    public void setY(double y) throws ExcepcionPuntoForaDoPrimeiroCadrante {
 
         if (y >= 0) {
 
@@ -54,7 +54,7 @@ public abstract class PuntoAbstracto {
 
         } else {
 
-            this.y = 0; // Asignar 0 a la variable de instancia
+            throw new ExcepcionPuntoForaDoPrimeiroCadrante();
 
         }
 

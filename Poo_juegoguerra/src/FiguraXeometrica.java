@@ -6,6 +6,6 @@ public abstract class FiguraXeometrica {
     }
 
     public FiguraXeometrica(double x, double y){
-        super(x,y);
+        super();
     }
 }

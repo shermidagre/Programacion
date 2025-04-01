@@ -240,6 +240,8 @@ public class Main {
 }
 class Hora {
 
+    private Object formatohoras;
+
     enum FormatoHora{DOCE, VINTECATRO}
 
     private int segundos;
@@ -281,8 +283,8 @@ class Hora {
     // Métodos get y set
 
     public void setFormato(String formatohoras){
-        if (formatohoras.toUpperCase().equals("DOCE") || formatohoras.toUpperCase().equals("VINTECATRO"))
-            this.formatohoras;
+        if (formatohoras.toUpperCase().equals("DOCE") || formatohoras.toUpperCase().equals("VINTECATRO")) {
+        }
 
     }
 
@@ -290,13 +292,15 @@ class Hora {
     public String toString() {
         String cadeahora;
         if (formatohoras == FormatoHora.VINTECATRO) {
-            cadeahora = "A hora e" + segundos + minutos + horas;
+            cadeahora = "A hora e " + horas + ":" + minutos + ":" + segundos;
         } else {
             if (horas > 11) {
-                cadeahora = "A hora e" + segundos + minutos + (horas - 12);
+                cadeahora = "A hora e " + (horas - 12) + ":" + minutos + ":" + segundos + " PM";
+            } else {
+                cadeahora = "A hora e " + horas + ":" + minutos + ":" + segundos + " AM";
             }
-            else
         }
+        return cadeahora;
     }
 
 

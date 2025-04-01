@@ -47,11 +47,11 @@ public class Main {
 
         // Crear instancias de la clase Punto
 
-        Punto p1 = new Punto(); // Punto en (0, 0)
+        Punto p1 = new Punto(3); // Punto en (0, 0)
 
         Punto p2 = new Punto(5); // Punto en (5, 5)
 
-        Punto p3 = new Punto(3.5, 4.5); // Punto en (3.5, 4.5)
+        Punto p3 = new Punto(3.5); // Punto en (3.5, 4.5)
 
         Punto p4 = new Punto(2, 3); // Punto en (2.0, 3.0)
 

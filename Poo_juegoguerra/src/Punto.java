@@ -1,18 +1,17 @@
 
-public class Punto {
+public class Punto extends PuntoAbstracto {
 
     private double x;
 
     private double y;
 
 
+
     // Constructor por defecto
 
-    public Punto() {
+    public Punto(double x, double y) throws ExcepcionPuntoForaDoPrimeiroCadrante {
 
-        x = 0;
-
-        y = 0;
+        super(x,y);
 
     }
 
@@ -34,7 +33,6 @@ public class Punto {
 
         x = (double) w; // Convertir a double
 
-        y = (double) w; // Convertir a double
 
     }
 

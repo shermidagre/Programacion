@@ -27,5 +27,21 @@ public class Main {
             }
         };
 
+        int a,b,c;
+        a =0;
+        b=0;
+
+        try
+        {
+            c = a/b;
+        } catch (ArithmeticException error) {
+            System.out.println("non se pode dividir entre 0");
+            System.out.println(error.getMessage());
+        }
+        catch (Exception error2){
+            System.out.println(error2.getMessage());
+        }
+
+
     }
 }

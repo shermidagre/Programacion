@@ -1,4 +1,4 @@
-public abstract class  CentroAbstracto implements PuntoAbstracto {
+public abstract class  CentroAbstracto extends PuntoAbstracto {
     private double x;
     private double y;
 

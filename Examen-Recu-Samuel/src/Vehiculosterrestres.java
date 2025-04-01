@@ -7,7 +7,6 @@ public class Vehiculosterrestres extends Vehiculos implements Transportemercanci
 
     }
 
-
     @Override
     void calculoCusteViaxe(double enerxiacombustible, double horasdistancia) {
         super.calculoCusteViaxe(enerxiacombustible, horasdistancia);

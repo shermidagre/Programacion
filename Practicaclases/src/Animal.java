@@ -1,19 +1,18 @@
     public abstract class  Animal {
-
-         String Nome;
+        static String Nome;
         private  int idade;
 
-        public Animal(String n, int i){
-            setNome(n);
-            setIdade(i);
+        public Animal(String Nome, int idade){
+            setNome(Nome);
+            setIdade(idade);
         }
 
         public String getNome() {
             return Nome;
         }
 
-        public void setNome(String nome) {
-            this.Nome = n;
+        public void setNome(String Nome) {
+            this.Nome = Nome;
         }
 
         public int getIdade() {
@@ -33,10 +32,10 @@
         }
 
         static void comer(){
-            System.out.println( n + "Esta comiendo");
+            System.out.println( Nome + "Esta comiendo");
         }
         static  void durmir(){
-            System.out.println( n + "Esta durmiendo");
+            System.out.println( Nome + "Esta durmiendo");
         }
 
         public abstract void desprazarse();
