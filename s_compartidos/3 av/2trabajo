@@ -1,0 +1,402 @@
+drop database dam1;
+DROP DATABASE
+
+[local]:5432 vboxuser@postgres=# \c postgres postgres
+Ahora está conectado a la base de datos «postgres» con el usuario «postgres».
+
+[local]:5432 postgres@postgres=# create database dam1;
+CREATE DATABASE
+
+[local]:5432 postgres@postgres=# \c dam1 postgres
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# revoke create on schema public from public;
+REVOKE
+
+[local]:5432 postgres@dam1=# revoke all on database dam1 from public;
+REVOKE
+
+[local]:5432 postgres@dam1=# create user ua with password 'a';
+CREATE ROLE
+
+[local]:5432 postgres@dam1=# create user ub with password 'b';
+CREATE ROLE
+
+[local]:5432 postgres@dam1=# create schema sa authorization ua;
+CREATE SCHEMA
+
+[local]:5432 postgres@dam1=# create schema sb authorization ub;
+CREATE SCHEMA
+
+[local]:5432 postgres@dam1=# \c dam1 ua
+falló la conexión al servidor en el socket «/var/run/postgresql/.s.PGSQL.5432»: FATAL:  permiso denegado a la base de datos «dam1»
+DETALLE:  Usuario no tiene privilegios de conexión.
+Se ha mantenido la conexión anterior
+
+[local]:5432 postgres@dam1=# grant connect on database dam1 to ua;
+GRANT
+
+[local]:5432 postgres@dam1=# \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> create table tproba(codigo varchar (10));
+ERROR:  permiso denegado al esquema public
+LÍNEA 1: create table tproba(codigo varchar (10));
+                      ^
+
+[local]:5432 ua@dam1=> \c dam1 postgres
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# grant create on schema public to ua;
+GRANT
+
+[local]:5432 postgres@dam1=# \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> create table t1(a int);
+CREATE TABLE
+
+[local]:5432 ua@dam1=> create table t2(a int);
+CREATE TABLE
+
+[local]:5432 ua@dam1=> \dt
+
+      Listado de relaciones
+ Esquema | Nombre | Tipo  | Dueño 
+---------+--------+-------+-------
+ public  | t1     | tabla | ua
+ public  | t2     | tabla | ua
+(2 filas)
+
+[local]:5432 ua@dam1=> insert into t1 values(1);
+INSERT 0 1
+
+[local]:5432 ua@dam1=> insert into t2 values(2);
+INSERT 0 1
+
+[local]:5432 ua@dam1=> select * from t1;
+ a 
+---
+ 1
+(1 fila)
+
+[local]:5432 ua@dam1=> select * from t2;
+ a 
+---
+ 2
+(1 fila)
+
+[local]:5432 ua@dam1=> \c dam1 postgres;
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# grant connect on database dam1 to ub;
+GRANT
+
+[local]:5432 ub@dam1=> \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> grant select on t1 to ub;
+GRANT
+
+[local]:5432 ua@dam1=> \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> select * from t1;
+ a 
+---
+ 1
+(1 fila)
+
+
+[local]:5432 ua@dam1=> \c dam1 postgres;
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# revoke usage on schema public from ub;
+REVOKE
+
+
+[local]:5432 ub@dam1=> \dn+
+
+                                     Listado de esquemas
+ Nombre |       Dueño       |              Privilegios               |      Descripción       
+--------+-------------------+----------------------------------------+------------------------
+ public | pg_database_owner | pg_database_owner=UC/pg_database_owner+| standard public schema
+        |                   | =U/pg_database_owner                  +| 
+        |                   | ua=C/pg_database_owner                 | 
+ sa     | ua                |                                        | 
+ sb     | ub                |                                        | 
+(3 filas)
+
+
+[local]:5432 ub@dam1=> \c dam1 postgres;
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# revoke usage on schema public from public;
+REVOKE
+
+[local]:5432 postgres@dam1=# \dn+
+
+                                     Listado de esquemas
+ Nombre |       Dueño       |              Privilegios               |      Descripción       
+--------+-------------------+----------------------------------------+------------------------
+ public | pg_database_owner | pg_database_owner=UC/pg_database_owner+| standard public schema
+        |                   | ua=C/pg_database_owner                 | 
+ sa     | ua                |                                        | 
+ sb     | ub                |                                        | 
+(3 filas)
+
+
+[local]:5432 postgres@dam1=# grant usage on schema public to ub;
+GRANT
+
+[local]:5432 postgres@dam1=# \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> select * from t1;
+ a 
+---
+ 1
+(1 fila)
+
+[local]:5432 ub@dam1=> insert into t2 values(5);
+ERROR:  permiso denegado a la tabla t2
+
+[local]:5432 ub@dam1=> \c dam1 postgres;
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# grant insert on t1 to ub;
+GRANT
+
+[local]:5432 postgres@dam1=# \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> insert into t1 values(3);
+INSERT 0 1
+
+[local]:5432 ub@dam1=> select * from t2;
+ERROR:  permiso denegado a la tabla t2
+
+[local]:5432 ub@dam1=> \c dam1 postgres;
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# grant select on t2 to ub;
+GRANT
+
+[local]:5432 postgres@dam1=# \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> select * from t2;
+ a 
+---
+ 2
+(1 fila)
+
+[local]:5432 ua@dam1=> \c dam1 postgres;
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# \dn+
+
+                                     Listado de esquemas
+ Nombre |       Dueño       |              Privilegios               |      Descripción       
+--------+-------------------+----------------------------------------+------------------------
+ public | pg_database_owner | pg_database_owner=UC/pg_database_owner+| standard public schema
+        |                   | ua=C/pg_database_owner                +| 
+        |                   | ub=U/pg_database_owner                 | 
+ sa     | ua                |                                        | 
+ sb     | ub                |                                        | 
+(3 filas)
+
+
+[local]:5432 postgres@dam1=# grant usage on schema public to ua;
+GRANT
+
+[local]:5432 postgres@dam1=# \dn+
+                           
+                                     Listado de esquemas
+ Nombre |       Dueño       |              Privilegios               |      Descripción       
+--------+-------------------+----------------------------------------+------------------------
+ public | pg_database_owner | pg_database_owner=UC/pg_database_owner+| standard public schema
+        |                   | ua=UC/pg_database_owner               +| 
+        |                   | ub=U/pg_database_owner                 | 
+ sa     | ua                |                                        | 
+ sb     | ub                |                                        | 
+(3 filas)
+
+
+[local]:5432 postgres@dam1=# \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> select * from t2;
+ a 
+---
+ 2
+(1 fila)
+
+[local]:5432 postgres@dam1=# \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> grant select on t2 to ub;
+GRANT
+
+[local]:5432 ua@dam1=> create table t3 as select * from t1;
+SELECT 2
+
+[local]:5432 ua@dam1=> \dt
+
+      Listado de relaciones
+ Esquema | Nombre | Tipo  | Dueño 
+---------+--------+-------+-------
+ public  | t1     | tabla | ua
+ public  | t2     | tabla | ua
+ public  | t3     | tabla | ua
+(3 filas)
+
+[local]:5432 ua@dam1=> select * from t3;
+ a 
+---
+ 1
+ 3
+(2 filas)
+
+[local]:5432 ua@dam1=> alter default privileges in schema public grant select on tables to ub;
+ALTER DEFAULT PRIVILEGES
+
+[local]:5432 ua@dam1=> \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> select * from t3;
+ERROR:  permiso denegado a la tabla t3
+
+(Da error ya que esa tabla fue creada antes de conceder el permiso)
+
+[local]:5432 ua@dam1=> \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> create table t4(a int);
+CREATE TABLE
+
+[local]:5432 ua@dam1=> \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> select * from t4;
+ a 
+---
+(0 filas)
+
+[local]:5432 ub@dam1=> \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> grant select on t3 to ub;
+GRANT
+
+[local]:5432 ua@dam1=> \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> select * from t3;
+ a 
+---
+ 1
+ 3
+(2 filas)
+
+
+[local]:5432 ub@dam1=> create table sb.t1(a int);
+CREATE TABLE
+
+[local]:5432 ub@dam1=> grant select on sb.t1 to ua;
+GRANT
+
+[local]:5432 ub@dam1=> \dt sb.*
+
+      Listado de relaciones
+ Esquema | Nombre | Tipo  | Dueño 
+---------+--------+-------+-------
+ sb      | t1     | tabla | ub
+ 
+(1 fila)
+
+[local]:5432 ub@dam1=> \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+[local]:5432 ua@dam1=> \dt sb.*
+
+      Listado de relaciones
+ Esquema | Nombre | Tipo  | Dueño 
+---------+--------+-------+-------
+ sb      | t1     | tabla | ub
+ 
+(1 fila)
+
+
+[local]:5432 ua@dam1=> select * from sb.t1;
+
+ERROR:  permiso denegado al esquema sb
+LÍNEA 1: select * from sb.t1
+                       ^
+                       
+[local]:5432 ua@dam1=# \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=>grant usage on schema sb to ua
+ GRANT
+                   
+[local]:5432 ua@dam1=> \c dam1 postgres
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# grant usage on schema sb to ua;
+GRANT
+
+[local]:5432 postgres@dam1=# \c dam1 ua
+Ahora está conectado a la base de datos «dam1» con el usuario «ua».
+
+[local]:5432 ua@dam1=> select * from sb.t1;
+ a 
+---
+(0 filas)
+
+
+
+[local]:5432 ua@dam1=> \c dam1 postgres
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# grant create on schema sa to ub;
+GRANT
+
+[local]:5432 postgres@dam1=# grant usage on schema sa to ub;
+GRANT
+
+[local]:5432 postgres@dam1=# \dn
+
+    Listado de esquemas
+ Nombre |       Dueño       
+--------+-------------------
+ public | pg_database_owner
+ sa     | ua
+ sb     | ub
+(3 filas)
+
+[local]:5432 postgres@dam1=# \c dam1 ub
+Ahora está conectado a la base de datos «dam1» con el usuario «ub».
+
+[local]:5432 ub@dam1=> create table sa.t1(a int)
+;
+CREATE TABLE
+
+[local]:5432 ub@dam1=> \dt sa.*
+
+      Listado de relaciones
+ Esquema | Nombre | Tipo  | Dueño 
+---------+--------+-------+-------
+ sa      | t1     | tabla | ub
+(1 fila)
+
+[local]:5432 ub@dam1=> \c dam1 postgres
+Ahora está conectado a la base de datos «dam1» con el usuario «postgres».
+
+[local]:5432 postgres@dam1=# grant select on sa.t1 to ua;
+GRANT
+
+[local]:5432 postgres@dam1=# grant insert on sa.t1 to ua;
+GRANT
+
+
+
