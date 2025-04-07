@@ -8,13 +8,19 @@ import java.io.ObjectOutputStream;
 public class EscrituraTaboaNumerosBinaria {
 
     EscrituraTaboaNumerosBinaria(int [] taboa) {
-        ObjectOutputStream fluxoSaida = null;
+        ObjectOutputStream fluxoSaidaImpares = null;
+        ObjectOutputStream fluxoSaidaPares = null;
                 try {
-                    fluxoSaida = new ObjectOutputStream(new FileOutputStream("numeros.dat"));
-
+                    fluxoSaidaImpares = new ObjectOutputStream(new FileOutputStream("numerosimpares.dat"));
+                    fluxoSaidaPares = new ObjectOutputStream(new FileOutputStream("numerospares.dat"));
+                    
                     if (taboa != null ) {
                         for (int numero : taboa) {
-                            fluxoSaida.writeInt(numero);
+                            if (numero % 2 == 0) {
+                                fluxoSaidaPares.writeInt(numero);
+                            } else {
+                                fluxoSaidaImpares.writeInt(numero);
+                            }
                         }
                     }
                 }
@@ -24,9 +30,16 @@ public class EscrituraTaboaNumerosBinaria {
                     System.out.println("Error: Entrada/saida" + e.getMessage());
                 }
                 finally {
-                    if (fluxoSaida != null) {
+                    if (fluxoSaidaPares != null) {
                         try {
-                            fluxoSaida.close();
+                            fluxoSaidaPares.close();
+                        } catch (IOException e) {
+                            System.out.println("Error: Problema ao fechar o fluxo de escrita" + e.getMessage());
+                        }
+                    }
+                    if (fluxoSaidaImpares != null) {
+                        try {
+                            fluxoSaidaImpares.close();
                         } catch (IOException e) {
                             System.out.println("Error: Problema ao fechar o fluxo de escrita" + e.getMessage());
                         }

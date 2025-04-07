@@ -20,7 +20,7 @@ public class Practica2 {
                 int contador = 0;
 
                 //dirección del archivo de texto
-                entrada = new BufferedReader(new FileReader("/home/dam/Documentos/Prog/Boletines/Boletin 11/src/Ej2/TextoNumeros"));
+                entrada = new BufferedReader(new FileReader("/home/dam/Documentos/Prog/Boletines/Boletin11/src/Ej2/TextoNumeros"));
 
                 //Guarda como String toda la info del archivo de texto
                 String linea = entrada.readLine();
