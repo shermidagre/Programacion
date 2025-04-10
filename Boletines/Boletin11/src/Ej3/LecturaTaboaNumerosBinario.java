@@ -4,24 +4,14 @@ import java.io.*;
 
 public class LecturaTaboaNumerosBinario {
     public LecturaTaboaNumerosBinario(String rutaFicheiro) {
-        ObjectInputStream fluxoEntradaImpares = null;
-        ObjectInputStream fluxoEntradaPares = null;
+        ObjectOutputStream fluxoSaidaImpares = null;
+        ObjectOutputStream fluxoSaidaPares = null;
         try {
-            fluxoEntradaImpares = new ObjectInputStream(new FileInputStream("numerosimpares.dat"));
+            fluxoSaidaImpares = new ObjectInputStream(new FileOutputStream("numerosimpares.dat");
             int numero;
             while (true) {
-                numero = fluxoEntradaImpares.readInt();
+                numero = fluxoSaidaImpares.();
                 System.out.println(numero);
-            }
-            try {
-                fluxoEntradaPares = new ObjectInputStream(new FileInputStream("numerospares.dat"));
-                while (true) {
-                    numero = fluxoEntradaPares.readInt();
-                    System.out.println(numero);
-                }
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         } catch (FileNotFoundException e) {
             System.out.println("Ficheiro non encontrado: " + e.getMessage());
@@ -30,9 +20,9 @@ public class LecturaTaboaNumerosBinario {
         } catch (IOException e) {
             System.out.println("Error de entrada/saída: " + e.getMessage());
         } finally {
-            if (fluxoEntradaImpares != null) {
+            if (fluxoSaidaImpares != null) {
                 try {
-                    fluxoEntradaImpares.close();
+                    fluxoSaidaImpares.close();
                 } catch (IOException e) {
                     System.out.println("Error: Problema ao fechar o fluxo de entrada" + e.getMessage());
                 }
