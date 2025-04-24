@@ -72,7 +72,7 @@ public class Cliente implements Comparable<Cliente> {
         System.out.println("Nueva York: " + newYork.format(formato));
 
         // Obtener todas las zonas horarias disponibles
-        //         ZoneId.getAvailableZoneIds().forEach(System.out::println);
+        // ZoneId.getAvailableZoneIds().forEach(System.out::println);
     }
 
 }
