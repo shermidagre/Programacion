@@ -34,7 +34,14 @@ public class Cliente implements Comparable<Cliente> {
      */
     @Override
     public int compareTo(Cliente outro) {
-        return dni.compareTo(outro.dni);
+        int res = 0;
+        if (edade() > outro.edade()) res = 1;
+        else if (edade() < outro.edade()) {
+            res = -1;
+        }
+        else res = Integer.parseInt("Las edades son iguales");
+
+        return res;
     }
 
 }
