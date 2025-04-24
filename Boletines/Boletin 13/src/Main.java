@@ -18,7 +18,6 @@ public class Main {
             System.out.println(elemento);
         }
 
-        // Ejemplo con Integers
         Integer[] array3 = {1, 2, 3};
         Integer[] array4 = {4, 5, 6};
 
