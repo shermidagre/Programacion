@@ -1,6 +1,8 @@
 package  Clientes;
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Cliente implements Comparable<Cliente> {
@@ -58,6 +60,19 @@ public class Cliente implements Comparable<Cliente> {
         System.out.println(cliente2);
 
         System.out.println("Comparacion de edades : " + cliente1.compareTo(cliente2)); // Salida: Comparación: -1
+
+        // Obtener la fecha y hora actual en una zona horaria específica
+        ZonedDateTime madrid = ZonedDateTime.now(ZoneId.of("Europe/Madrid"));
+        ZonedDateTime newYork = ZonedDateTime.now(ZoneId.of("America/New_York"));
+
+        // Formatear las fechas para que sean más legibles
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss z");
+        System.out.println("\nLugares con diferentes datas:");
+        System.out.println("Madrid: " + madrid.format(formato));
+        System.out.println("Nueva York: " + newYork.format(formato));
+
+        // Obtener todas las zonas horarias disponibles
+        //         ZoneId.getAvailableZoneIds().forEach(System.out::println);
     }
 
 }
