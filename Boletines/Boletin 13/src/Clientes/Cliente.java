@@ -34,14 +34,30 @@ public class Cliente implements Comparable<Cliente> {
      */
     @Override
     public int compareTo(Cliente outro) {
-        int res = 0;
-        if (edade() > outro.edade()) res = 1;
-        else if (edade() < outro.edade()) {
+        int res;
+        if (edade() > outro.edade()) {
+            res = 1;
+        } else if (edade() < outro.edade()) {
             res = -1;
+        } else {
+            res = 0;
         }
-        else res = Integer.parseInt("Las edades son iguales");
-
         return res;
+    }
+
+    public String toString() {
+        DateTimeFormatter formatoDatas = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return dni + " " + nome + " " + dataNacemento.format(formatoDatas);
+    }
+
+    public static void main(String[] args) {
+        Cliente cliente1 = new Cliente("12345678A", "Juan Pérez", "15/05/1990");
+        Cliente cliente2 = new Cliente("87654321B", "Ana López", "20/08/1985");
+
+        System.out.println(cliente1);
+        System.out.println(cliente2);
+
+        System.out.println("Comparacion de edades : " + cliente1.compareTo(cliente2)); // Salida: Comparación: -1
     }
 
 }
